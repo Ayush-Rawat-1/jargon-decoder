@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Markets Jargon Decoder · BodhiProtocol</title>
+<meta name="description" content="Jargon is a wall. This is a door. Plain-language answers to capital markets terminology — with visual explanations and a flashcard mode.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14101F;
+  --panel:#201936;
+  --panel-2:#2A2145;
+  --lotus:#9D7BEA;
+  --lavender:#C9B8F5;
+  --gold:#E8B75A;
+  --mist:#EDE9F7;
+  --muted:#8B84A3;
+  --line:rgba(157,123,234,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{
+  background:var(--ink);color:var(--mist);
+  font-family:'Inter',system-ui,sans-serif;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+header{padding:26px 0 0;display:flex;justify-content:center}
+.brand{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;
+  letter-spacing:.22em;color:var(--muted);text-transform:uppercase;
+}
+.brand b{color:var(--lotus);font-weight:500}
+
+.hero{padding:46px 0 26px;text-align:center}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-weight:600;
+  font-size:clamp(2.3rem,6vw,3.6rem);line-height:1.1;
+}
+.hero h1 em{font-style:italic;color:var(--lotus)}
+.hero p{margin:14px auto 0;max-width:460px;color:var(--muted);font-size:1rem}
+
+/* mode toggle */
+.modes{display:flex;justify-content:center;gap:0;padding:4px 0 22px}
+.mode-btn{
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--lavender);font-family:'Inter',sans-serif;font-weight:500;
+  font-size:.88rem;padding:10px 26px;cursor:pointer;transition:all .25s ease;
+}
+.mode-btn:first-child{border-radius:999px 0 0 999px}
+.mode-btn:last-child{border-radius:0 999px 999px 0;border-left:none}
+.mode-btn.active{background:var(--lotus);border-color:var(--lotus);color:var(--ink)}
+.mode-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* decode bar */
+.decode-zone{padding:0 0 18px}
+.decode-bar{display:flex;gap:10px;max-width:620px;margin:0 auto}
+.decode-bar input{
+  flex:1;background:var(--panel);border:1.5px solid var(--line);
+  border-radius:999px;padding:15px 24px;color:var(--mist);
+  font-family:'Inter',sans-serif;font-size:1rem;outline:none;
+  transition:border-color .25s ease;
+}
+.decode-bar input::placeholder{color:var(--muted)}
+.decode-bar input:focus{border-color:var(--gold)}
+.decode-bar button{
+  background:var(--lotus);border:none;border-radius:999px;
+  padding:0 26px;color:var(--ink);font-weight:600;font-size:.92rem;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:background .25s ease;
+  white-space:nowrap;
+}
+.decode-bar button:hover{background:var(--gold)}
+.decode-bar button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.count{
+  text-align:center;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.count b{color:var(--gold);font-weight:500}
+
+/* category chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding:18px 0 30px}
+.chip{
+  background:none;border:1px solid var(--line);border-radius:999px;
+  padding:6px 16px;color:var(--lavender);font-size:.8rem;font-weight:500;
+  cursor:pointer;font-family:'Inter',sans-serif;transition:all .25s ease;
+}
+.chip:hover{border-color:var(--lotus);background:var(--panel)}
+.chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.chip.active{background:var(--lotus);border-color:var(--lotus);color:var(--ink)}
+
+/* term cards */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-bottom:60px}
+.card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:16px;padding:22px 24px;
+  transition:border-color .25s ease;
+}
+.card:hover{border-color:var(--lotus)}
+.card .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.card .cat{
+  font-family:'IBM Plex Mono',monospace;font-size:.62rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+}
+.badge{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink);background:var(--gold);border-radius:999px;
+  padding:2px 10px;cursor:pointer;border:none;transition:background .25s ease;
+}
+.badge:hover{background:var(--lavender)}
+.badge:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.card h3{
+  font-family:'IBM Plex Mono',monospace;font-weight:500;
+  font-size:1.05rem;color:var(--mist);margin-bottom:8px;letter-spacing:.02em;
+}
+.card .plain{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.12rem;color:var(--lavender);line-height:1.45;margin-bottom:10px;
+}
+.card .more{font-size:.86rem;color:var(--muted)}
+.card .viz{
+  display:none;margin-top:16px;padding-top:16px;
+  border-top:1px dashed var(--line);
+}
+.card.open .viz{display:block}
+.viz svg{width:100%;height:auto;display:block}
+.viz text{font-family:'Inter',sans-serif;fill:var(--mist)}
+.viz .vs{font-size:10px;fill:var(--muted)}
+.viz .vt{font-size:11px;font-weight:600;fill:var(--mist)}
+.viz .vg{fill:var(--gold)}
+.viz .vgt{font-size:11px;font-weight:600;fill:var(--ink)}
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)}
+.empty .big{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.4rem;color:var(--lavender);margin-bottom:8px;
+}
+
+/* test mode */
+.test-zone{display:none;padding:6px 0 70px}
+.test-zone.on{display:block}
+.decode-view{display:block}
+.decode-view.off{display:none}
+.flash{
+  background:var(--panel);border:1px solid var(--line);border-radius:20px;
+  max-width:560px;margin:0 auto;padding:40px 38px;text-align:center;
+}
+.flash .fcat{
+  font-family:'IBM Plex Mono',monospace;font-size:.66rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;
+}
+.flash .fplain{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.5rem;color:var(--lavender);line-height:1.4;margin-bottom:26px;
+}
+.flash .fterm{
+  display:none;font-family:'IBM Plex Mono',monospace;font-weight:500;
+  font-size:1.5rem;color:var(--gold);letter-spacing:.03em;margin-bottom:12px;
+}
+.flash .fmore{display:none;font-size:.9rem;color:var(--muted);margin-bottom:26px}
+.flash.revealed .fterm,.flash.revealed .fmore{display:block}
+.fbtns{display:flex;gap:10px;justify-content:center}
+.fbtn{
+  border-radius:999px;padding:12px 30px;font-family:'Inter',sans-serif;
+  font-weight:600;font-size:.92rem;cursor:pointer;transition:all .25s ease;
+}
+.fbtn.primary{background:var(--lotus);border:none;color:var(--ink)}
+.fbtn.primary:hover{background:var(--gold)}
+.fbtn.ghost{background:none;border:1px solid var(--line);color:var(--lavender)}
+.fbtn.ghost:hover{border-color:var(--lotus)}
+.fbtn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.fcount{
+  text-align:center;margin-top:18px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.fcount b{color:var(--gold);font-weight:500}
+
+footer{border-top:1px solid var(--line);padding:32px 0 44px;text-align:center}
+footer .om{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  color:var(--lavender);font-size:1.02rem;margin-bottom:10px;
+}
+footer .meta{
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;
+  letter-spacing:.16em;color:var(--muted);text-transform:uppercase;
+}
+footer .meta a{color:var(--lotus);text-decoration:none}
+footer .meta a:hover{color:var(--gold)}
+
+@media (max-width:640px){
+  .grid{grid-template-columns:1fr}
+  .decode-bar{flex-direction:column}
+  .decode-bar button{padding:13px 26px}
+  .flash{padding:30px 22px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Bodhi<b>Protocol</b> · Awakening Through Play</div>
+</header>
+
+<section class="hero wrap">
+  <h1>Jargon is a wall.<br><em>This is a door.</em></h1>
+  <p>Capital markets, decoded into plain language. Type a term, or test yourself.</p>
+</section>
+
+<div class="modes wrap">
+  <button class="mode-btn active" id="modeDecode" type="button">Decode</button>
+  <button class="mode-btn" id="modeTest" type="button">Test me</button>
+</div>
+
+<div class="decode-view" id="decodeView">
+  <section class="decode-zone wrap">
+    <div class="decode-bar">
+      <input id="q" type="text" placeholder="What is novation? DvP? A corporate action?" aria-label="Search jargon terms" autocomplete="off">
+      <button id="surprise" type="button">Surprise me</button>
+    </div>
+    <div class="count" id="count"></div>
+  </section>
+
+  <section class="wrap">
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+  </section>
+</div>
+
+<div class="test-zone wrap" id="testZone">
+  <div class="flash" id="flash" aria-live="polite">
+    <div class="fcat" id="fcat"></div>
+    <div class="fplain" id="fplain"></div>
+    <div class="fterm" id="fterm"></div>
+    <div class="fmore" id="fmore"></div>
+    <div class="fbtns">
+      <button class="fbtn primary" id="frevbtn" type="button">Reveal term</button>
+      <button class="fbtn ghost" id="fnextbtn" type="button">Next card</button>
+    </div>
+  </div>
+  <div class="fcount" id="fcount"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="om">"The beginning of wisdom is the definition of terms." — Socrates</div>
+    <div class="meta">Built by a business analyst who builds · <a href="https://github.com/BodhiProtocol" target="_blank" rel="noopener">github.com/BodhiProtocol</a></div>
+  </div>
+</footer>
+
+<script>
+const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology"];
+
+/* ---------- mini diagram library ---------- */
+/* Each returns an SVG string sized for a card (~320px wide). Colors via CSS classes. */
+const L="var(--line)",LO="var(--lotus)",G="var(--gold)",MU="var(--muted)",P2="var(--panel-2)";
+const DIAG = {
+"Novation":`<svg viewBox="0 0 320 170" aria-label="Before and after novation">
+<text class="vs" x="80" y="16" text-anchor="middle">Before</text>
+<rect x="18" y="28" width="58" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="47" y="47" text-anchor="middle">Buyer</text>
+<rect x="104" y="28" width="58" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="133" y="47" text-anchor="middle">Seller</text>
+<line x1="78" y1="43" x2="102" y2="43" stroke="${MU}" stroke-width="1.2"/>
+<text class="vs" x="90" y="78" text-anchor="middle" fill="${MU}">they face each other —</text>
+<text class="vs" x="90" y="92" text-anchor="middle" fill="${MU}">each other's risk</text>
+<line x1="180" y1="10" x2="180" y2="100" stroke="${L}" stroke-dasharray="4 4"/>
+<text class="vs" x="250" y="16" text-anchor="middle">After</text>
+<rect x="192" y="28" width="42" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="213" y="47" text-anchor="middle">Buyer</text>
+<rect x="242" y="28" width="38" height="30" rx="7" class="vg"/>
+<text class="vgt" x="261" y="47" text-anchor="middle" style="font-size:10px">CCP</text>
+<rect x="288" y="28" width="28" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="302" y="47" text-anchor="middle" style="font-size:8.5px">Seller</text>
+<line x1="234" y1="43" x2="242" y2="43" stroke="${G}" stroke-width="1.2"/>
+<line x1="280" y1="43" x2="288" y2="43" stroke="${G}" stroke-width="1.2"/>
+<text class="vs" x="250" y="78" text-anchor="middle" fill="${MU}">the CCP steps between —</text>
+<text class="vs" x="250" y="92" text-anchor="middle" fill="${MU}">default risk absorbed</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">You no longer face a stranger.</text>
+<text class="vs" x="160" y="143" text-anchor="middle" fill="${MU}">You face the clearing house.</text>
+</svg>`,
+
+"Netting":`<svg viewBox="0 0 320 150" aria-label="Netting collapses offsetting obligations">
+<text class="vs" x="60" y="24">Buy 500</text>
+<line x1="30" y1="42" x2="140" y2="42" stroke="${LO}" stroke-width="2"/>
+<text class="vs" x="60" y="72">Sell 300</text>
+<line x1="140" y1="90" x2="30" y2="90" stroke="${MU}" stroke-width="2"/>
+<line x1="150" y1="66" x2="180" y2="66" stroke="${L}" stroke-width="1" stroke-dasharray="3 3"/>
+<text class="vs" x="196" y="52">Settle only</text>
+<rect x="190" y="58" width="110" height="30" rx="7" class="vg"/>
+<text class="vgt" x="245" y="77" text-anchor="middle">200 net</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">Less movement. Less risk. Less cost.</text>
+</svg>`,
+
+"DvP":`<svg viewBox="0 0 320 150" aria-label="Delivery versus payment happens simultaneously">
+<rect x="16" y="46" width="70" height="34" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="51" y="67" text-anchor="middle">Buyer</text>
+<rect x="234" y="46" width="70" height="34" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="269" y="67" text-anchor="middle">Seller</text>
+<line x1="90" y1="54" x2="230" y2="54" stroke="${LO}" stroke-width="1.6"/>
+<text class="vs" x="160" y="46" text-anchor="middle" fill="${MU}">money →</text>
+<line x1="230" y1="74" x2="90" y2="74" stroke="${LO}" stroke-width="1.6"/>
+<text class="vs" x="160" y="92" text-anchor="middle" fill="${MU}">← shares</text>
+<rect x="150" y="52" width="20" height="24" rx="5" class="vg"/>
+<text class="vs" x="160" y="118" text-anchor="middle" fill="${G}">same instant — or neither happens</text>
+</svg>`,
+
+"T+1":`<svg viewBox="0 0 320 130" aria-label="Trade date plus one day settlement timeline">
+<line x1="30" y1="60" x2="290" y2="60" stroke="${L}" stroke-width="1.4"/>
+<circle cx="80" cy="60" r="6" fill="${LO}"/>
+<text class="vt" x="80" y="40" text-anchor="middle">T</text>
+<text class="vs" x="80" y="88" text-anchor="middle" fill="${MU}">you trade</text>
+<circle cx="240" cy="60" r="6" fill="${G}"/>
+<text class="vt" x="240" y="40" text-anchor="middle">T+1</text>
+<text class="vs" x="240" y="88" text-anchor="middle" fill="${MU}">shares &amp; money move</text>
+<text class="vs" x="160" y="52" text-anchor="middle" fill="${MU}">one business day</text>
+<text class="vs" x="160" y="116" text-anchor="middle" fill="${MU}">Until then, a promise. After, a fact.</text>
+</svg>`,
+
+"Bid-Ask Spread":`<svg viewBox="0 0 320 150" aria-label="Gap between best bid and best ask">
+<rect x="40" y="50" width="90" height="34" rx="7" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="85" y="66" text-anchor="middle">Best bid</text>
+<text class="vt" x="85" y="79" text-anchor="middle">99.95</text>
+<rect x="190" y="50" width="90" height="34" rx="7" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="235" y="66" text-anchor="middle">Best ask</text>
+<text class="vt" x="235" y="79" text-anchor="middle">100.05</text>
+<rect x="134" y="50" width="52" height="34" rx="7" class="vg"/>
+<text class="vgt" x="160" y="71" text-anchor="middle" style="font-size:10px">spread</text>
+<text class="vs" x="160" y="116" text-anchor="middle" fill="${MU}">The gap is the price of entry.</text>
+<text class="vs" x="160" y="131" text-anchor="middle" fill="${MU}">Tight gap = healthy liquidity.</text>
+</svg>`,
+
+"Ex-Date":`<svg viewBox="0 0 320 140" aria-label="Ex-date on a calendar strip">
+<rect x="24" y="40" width="62" height="40" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="55" y="58" text-anchor="middle">Mon</text>
+<text class="vs" x="55" y="72" text-anchor="middle" fill="${MU}">dividend yours</text>
+<rect x="94" y="40" width="62" height="40" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="125" y="58" text-anchor="middle">Tue</text>
+<text class="vs" x="125" y="72" text-anchor="middle" fill="${MU}">dividend yours</text>
+<rect x="164" y="40" width="62" height="40" rx="7" class="vg"/>
+<text class="vgt" x="195" y="58" text-anchor="middle" style="font-size:10px">Ex-date</text>
+<text class="vs" x="195" y="72" text-anchor="middle" fill="var(--ink)">not yours now</text>
+<rect x="234" y="40" width="62" height="40" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="265" y="58" text-anchor="middle">Record</text>
+<text class="vs" x="265" y="72" text-anchor="middle" fill="${MU}">list checked</text>
+<text class="vs" x="160" y="114" text-anchor="middle" fill="${MU}">Buy on or after the gold day — the dividend passed you by.</text>
+</svg>`,
+
+"Order Book":`<svg viewBox="0 0 320 160" aria-label="Bids stack against asks in the order book">
+<text class="vs" x="80" y="20" text-anchor="middle">Bids (buyers)</text>
+<rect x="30" y="30" width="100" height="16" rx="4" fill="${LO}" opacity=".9"/>
+<rect x="50" y="52" width="80" height="16" rx="4" fill="${LO}" opacity=".6"/>
+<rect x="70" y="74" width="60" height="16" rx="4" fill="${LO}" opacity=".35"/>
+<text class="vs" x="240" y="20" text-anchor="middle">Asks (sellers)</text>
+<rect x="190" y="30" width="100" height="16" rx="4" fill="${G}" opacity=".9"/>
+<rect x="190" y="52" width="80" height="16" rx="4" fill="${G}" opacity=".6"/>
+<rect x="190" y="74" width="60" height="16" rx="4" fill="${G}" opacity=".35"/>
+<line x1="160" y1="26" x2="160" y2="96" stroke="${MU}" stroke-width="1" stroke-dasharray="3 3"/>
+<text class="vs" x="160" y="118" text-anchor="middle" fill="${MU}">Where the stacks meet, trades happen.</text>
+<text class="vs" x="160" y="133" text-anchor="middle" fill="${MU}">Best prices sit closest to the middle.</text>
+</svg>`,
+
+"Option":`<svg viewBox="0 0 320 160" aria-label="An option is a choice: exercise or walk away">
+<rect x="20" y="56" width="90" height="34" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="65" y="70" text-anchor="middle">Pay premium</text>
+<text class="vs" x="65" y="83" text-anchor="middle" fill="${MU}">buy the right</text>
+<line x1="112" y1="73" x2="150" y2="73" stroke="${MU}" stroke-width="1.2"/>
+<circle cx="160" cy="73" r="9" fill="${G}"/>
+<line x1="168" y1="66" x2="205" y2="36" stroke="${LO}" stroke-width="1.4"/>
+<rect x="208" y="20" width="96" height="30" rx="7" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="256" y="39" text-anchor="middle">Exercise it</text>
+<line x1="168" y1="80" x2="205" y2="110" stroke="${MU}" stroke-width="1.4"/>
+<rect x="208" y="96" width="96" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="256" y="115" text-anchor="middle">Walk away</text>
+<text class="vs" x="160" y="150" text-anchor="middle" fill="${MU}">The premium buys the fork in the road.</text>
+</svg>`,
+
+"Circuit Breaker":`<svg viewBox="0 0 320 150" aria-label="Index fall levels trigger market halts">
+<line x1="60" y1="24" x2="60" y2="118" stroke="${L}" stroke-width="1.4"/>
+<circle cx="60" cy="40" r="5" fill="${LO}"/>
+<text class="vs" x="76" y="44">−10% → trading halts, cool-off</text>
+<circle cx="60" cy="72" r="5" fill="${G}"/>
+<text class="vs" x="76" y="76">−15% → longer halt</text>
+<circle cx="60" cy="104" r="5" fill="${G}"/>
+<text class="vs" x="76" y="108">−20% → market closes for the day</text>
+<text class="vs" x="160" y="138" text-anchor="middle" fill="${MU}">A pause button for panic.</text>
+</svg>`,
+
+"STP":`<svg viewBox="0 0 320 130" aria-label="Straight-through processing with no manual touch">
+<rect x="16" y="44" width="64" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="48" y="63" text-anchor="middle">Order</text>
+<line x1="82" y1="59" x2="106" y2="59" stroke="${LO}" stroke-width="1.6"/>
+<rect x="108" y="44" width="64" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="140" y="63" text-anchor="middle">Match</text>
+<line x1="174" y1="59" x2="198" y2="59" stroke="${LO}" stroke-width="1.6"/>
+<rect x="200" y="44" width="52" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="226" y="63" text-anchor="middle">Clear</text>
+<line x1="254" y1="59" x2="270" y2="59" stroke="${LO}" stroke-width="1.6"/>
+<rect x="272" y="44" width="42" height="30" rx="7" class="vg"/>
+<text class="vgt" x="293" y="63" text-anchor="middle" style="font-size:9px">Settle</text>
+<text class="vs" x="160" y="106" text-anchor="middle" fill="${MU}">One straight pipe. No human hands. No errors introduced.</text>
+</svg>`
+};
+
+const TERMS = [
+{t:"Order Book",c:0,p:"The exchange's live list of everyone waiting to buy or sell, and at what price.",m:"Buy orders (bids) on one side, sell orders (asks) on the other. Where they meet, trades happen."},
+{t:"Limit Order",c:0,p:"\"Buy it — but only at my price or better.\"",m:"You control the price, not the timing. It may never execute if the market doesn't come to you."},
+{t:"Market Order",c:0,p:"\"Buy it now, whatever the price.\"",m:"You control the timing, not the price. Fast, but you accept whatever the market offers."},
+{t:"Execution",c:0,p:"The instant a buyer and seller are matched. Intention becomes transaction.",m:"Done by the exchange's matching engine, usually in microseconds, by price-time priority."},
+{t:"Allocation",c:0,p:"Splitting one big institutional trade across the many client accounts it was really for.",m:"A fund manager buys 1 lakh shares in one order, then allocates them across dozens of funds."},
+{t:"Confirmation",c:0,p:"Both sides comparing notes: \"Did we just agree to the same trade?\"",m:"Price, quantity, security, settlement date — all matched before money moves. Mismatches become breaks."},
+{t:"Trade Enrichment",c:0,p:"Adding everything the raw trade forgot: fees, taxes, accounts, settlement instructions.",m:"The matching engine records the bare minimum. Downstream systems need the full story."},
+{t:"STP",c:0,p:"Straight-Through Processing — a trade that flows from order to settlement with no human touching it.",m:"The goal of every trading system. Every manual touch adds cost, delay, and error."},
+{t:"Reconciliation",c:0,p:"Checking that what you think you own matches what everyone else's records say you own.",m:"Positions vs custodian, cash vs bank, trades vs counterparty. Daily. Forever."},
+{t:"Break",c:0,p:"A mismatch between two records that should agree. The reconciliation failed.",m:"Someone has to investigate, find the truth, and fix a system. Often that someone is a BA."},
+{t:"Failed Trade",c:0,p:"Settlement day arrived, but the shares or the money didn't.",m:"Fails cost penalties and trust. Persistent fails can trigger a buy-in — forced purchase at your expense."},
+{t:"Corporate Action",c:0,p:"The company does something that changes what your shares mean: dividend, split, merger, bonus issue.",m:"Mandatory ones happen to you; voluntary ones ask you to choose. Systems must apply them precisely."},
+{t:"Record Date",c:0,p:"The day the company checks its shareholder list to decide who gets the dividend.",m:"Own it on record date, you're paid. The ex-date, just before, is when the stock trades without that right."},
+{t:"Ex-Date",c:0,p:"Buy on or after this date, and the upcoming dividend is not yours.",m:"The price usually drops by roughly the dividend amount that morning. No free lunch."},
+{t:"ISIN",c:0,p:"A security's passport number — a 12-character code identifying it globally.",m:"INE002A01018 is Reliance Industries. Every system, everywhere, agrees on it."},
+{t:"Demat",c:0,p:"Your shares as electronic entries instead of paper certificates.",m:"Held at a depository (NSDL or CDSL in India) via your demat account. No paper, no forgery, no loss."},
+{t:"Novation",c:1,p:"The clearing house steps into the middle: it becomes the buyer to every seller and the seller to every buyer.",m:"You no longer face the stranger you traded with — you face the CCP. Counterparty risk, absorbed."},
+{t:"CCP",c:1,p:"Central Counterparty — the institution that guarantees both sides of every trade.",m:"NSE Clearing in India. If a member defaults, the CCP still delivers. Margins and default funds make that promise real."},
+{t:"Netting",c:1,p:"Cancelling offsetting obligations so only the difference moves.",m:"Bought 500, sold 300 of the same stock the same day? Settle 200. Less movement, less risk, less cost."},
+{t:"Margin",c:1,p:"A good-faith deposit the clearing house holds in case you can't pay up.",m:"Collected upfront and adjusted daily as prices move. The market's way of saying: trust, but collateralise."},
+{t:"Mark-to-Market",c:1,p:"Revaluing your positions at today's price, not the price you paid.",m:"Gains and losses are recognised daily, and margin calls follow the losses. Reality, applied every evening."},
+{t:"DvP",c:1,p:"Delivery versus Payment — shares move if and only if money moves. Simultaneously.",m:"Neither side can be left holding nothing. The single most important safeguard in settlement."},
+{t:"T+1",c:1,p:"Trade today, settle tomorrow. T is trade date; +1 is one business day.",m:"India runs T+1 for equities — among the fastest settlement cycles in the world. The US followed in 2024."},
+{t:"Settlement",c:1,p:"The finale: securities land in the buyer's account, money lands in the seller's.",m:"Until settlement, a trade is a promise. After it, an immutable fact."},
+{t:"Custodian",c:1,p:"A bank that safekeeps securities for institutions and handles the plumbing of settlement.",m:"Foreign investors in India can't hold assets directly — their custodian does, and settles on their behalf."},
+{t:"Depository",c:1,p:"The vault where all demat securities in a market actually live, as electronic records.",m:"NSDL and CDSL in India. Your broker shows you the balance; the depository is the truth."},
+{t:"Haircut",c:1,p:"The discount applied to collateral value, just in case its price falls.",m:"Pledge ₹100 of shares, get credit for ₹80. The 20% haircut is the lender's cushion."},
+{t:"Buy-in",c:1,p:"You failed to deliver, so the system buys the shares elsewhere — and hands you the bill.",m:"The market's enforcement mechanism. Failure has a price, and it's yours."},
+{t:"Equity",c:2,p:"A slice of ownership in a company, with a claim on its future.",m:"Shareholders are paid last but own the upside. Voting rights, dividends, and volatility included."},
+{t:"Bond",c:2,p:"A loan you give, packaged as a security. The issuer promises interest and repayment.",m:"Governments and companies borrow this way. Safer than equity, usually — but a promise, not a guarantee."},
+{t:"Coupon",c:2,p:"The interest a bond pays, named for the paper coupons investors once clipped.",m:"A 7% coupon on ₹1,000 face value pays ₹70 a year, rain or shine, until maturity."},
+{t:"Yield",c:2,p:"What a bond actually earns you at today's price — not the coupon printed on it.",m:"Prices fall, yields rise. The seesaw at the heart of every fixed income market."},
+{t:"Derivative",c:2,p:"A contract whose value is borrowed from something else — a stock, an index, a commodity.",m:"Futures and options are the famous ones. Tools for hedging risk, or for taking it."},
+{t:"Future",c:2,p:"A binding promise to buy or sell something at a set price on a set date.",m:"Both sides are locked in. Standardised, exchange-traded, margined daily."},
+{t:"Option",c:2,p:"The right — but not the obligation — to buy or sell at a set price.",m:"Calls to buy, puts to sell. You pay a premium for the privilege of walking away."},
+{t:"Strike Price",c:2,p:"The pre-agreed price at which an option lets you buy or sell.",m:"Where the strike sits relative to the market price decides whether your option is worth anything."},
+{t:"Premium",c:2,p:"The price of an option — what you pay for the right to choose later.",m:"The seller keeps it no matter what. Time and volatility make it bigger; expiry makes it zero."},
+{t:"Underlying",c:2,p:"The real thing a derivative's value hangs from.",m:"For a Nifty future, the Nifty 50 index. No underlying, no derivative."},
+{t:"ETF",c:2,p:"A fund that trades like a stock — one purchase, an entire basket.",m:"Buy the whole Nifty in a single click. Low cost, live pricing, instant diversification."},
+{t:"NAV",c:2,p:"Net Asset Value — what one unit of a mutual fund is truly worth today.",m:"Total assets minus liabilities, divided by units. Calculated daily after markets close."},
+{t:"Face Value",c:2,p:"The nominal value printed on a security — the number promises are measured against.",m:"A bond repays face value at maturity. A stock split changes face value, not your wealth."},
+{t:"KYC",c:3,p:"Know Your Customer — proving people are who they claim before they touch the market.",m:"Identity, address, and risk profile, verified. The first gate every investor passes through."},
+{t:"AML",c:3,p:"Anti-Money Laundering — making sure the market isn't a washing machine for dirty money.",m:"Systems watch for suspicious patterns and report them. A pillar of every fraud programme."},
+{t:"Surveillance",c:3,p:"Watching every trade for patterns that shouldn't exist.",m:"Spoofing, layering, pump-and-dump — algorithms hunt algorithms. Alerts land on human desks for judgment."},
+{t:"Front Running",c:3,p:"Trading ahead of a client's big order because you saw it coming. Illegal.",m:"Knowledge of order flow is a trust, not an edge. Surveillance systems exist to catch exactly this."},
+{t:"Insider Trading",c:3,p:"Trading on material information the public doesn't have yet. Also illegal.",m:"The market's fairness depends on everyone facing the same information at the same time."},
+{t:"Wash Trade",c:3,p:"Selling to yourself to fake volume and paint a false picture of demand.",m:"No real change in ownership, no real risk — just manufactured activity. A classic manipulation flag."},
+{t:"Circuit Breaker",c:3,p:"An automatic pause when prices move too far, too fast.",m:"Markets halt so panic can cool. India halts trading at 10%, 15%, and 20% index moves."},
+{t:"Basis Point",c:3,p:"One hundredth of one percent. The market's smallest unit of seriousness.",m:"100 bps = 1%. When billions move, 0.01% is real money — so it earned its own name."},
+{t:"VaR",c:3,p:"Value at Risk — \"how much could we lose on a bad day, with 99% confidence?\"",m:"One number summarising portfolio risk. Useful, famous, and famously silent about the worst 1%."},
+{t:"Collateral",c:3,p:"Assets pledged as a promise: \"if I fail, take this.\"",m:"Cash, government bonds, blue-chip shares. The lubricant of trust between institutions."},
+{t:"Liquidity",c:3,p:"How easily you can trade without moving the price against yourself.",m:"Deep markets absorb big orders quietly. Illiquid ones punish urgency."},
+{t:"Slippage",c:3,p:"The gap between the price you expected and the price you got.",m:"You clicked at 100, filled at 100.30. In fast or thin markets, slippage is the silent fee."},
+{t:"Bid-Ask Spread",c:3,p:"The gap between the best buying price and the best selling price.",m:"Tight spreads mean healthy liquidity. Wide spreads mean you pay just to enter."},
+{t:"Buy-side",c:4,p:"The investors — funds, insurers, pensions — who buy securities to grow money they manage.",m:"Mutual funds, hedge funds, sovereign funds. They generate the orders; the sell-side executes them."},
+{t:"Sell-side",c:4,p:"The brokers and investment banks who make markets, execute orders, and sell research.",m:"They sit between investors and exchanges. Their product is access, execution, and advice."},
+{t:"Market Maker",c:4,p:"A firm that quotes both buy and sell prices all day, so there's always someone to trade with.",m:"They earn the spread in exchange for providing liquidity. The market's shock absorbers."},
+{t:"Broker",c:4,p:"Your licensed doorway to the exchange. You can't walk onto NSE yourself.",m:"Executes your orders, holds your margin, answers to the regulator for your conduct."},
+{t:"OTC",c:4,p:"Over-The-Counter — trades negotiated directly between two parties, off the exchange.",m:"Flexible and private, but without the exchange's transparency or the CCP's guarantee."},
+{t:"Exchange",c:4,p:"The regulated arena where orders meet, prices form, and everyone sees the same numbers.",m:"NSE and BSE in India. Transparency, rules, and a matching engine at the core."},
+{t:"Prime Broker",c:4,p:"A one-stop bank for hedge funds: custody, lending, leverage, and settlement under one roof.",m:"The fund trades everywhere but clears through its prime. Convenience, concentrated."},
+{t:"Regulator",c:4,p:"The referee. Writes the rules, watches the game, and penalises the fouls.",m:"SEBI for Indian securities markets, RBI for banking and currency. Their circulars become your requirements."},
+{t:"FIX Protocol",c:5,p:"The common language trading systems speak to each other. Since 1992.",m:"Orders, executions, cancellations — all standardised messages. Tag 35=D means \"new order\". Every OMS speaks it."},
+{t:"OMS",c:5,p:"Order Management System — where orders are born, validated, tracked, and audited.",m:"The buy-side's book of record for every order's life. The BA's most-visited system."},
+{t:"EMS",c:5,p:"Execution Management System — the trader's cockpit for working orders in the market.",m:"Real-time data, algos, smart routing. The OMS decides what; the EMS decides how."},
+{t:"Matching Engine",c:5,p:"The exchange's heart: the software that pairs buyers with sellers by price-time priority.",m:"Best price wins; at equal prices, first come first served. Microsecond fair play."},
+{t:"Market Data Feed",c:5,p:"The live river of prices, quotes, and trades flowing out of exchanges.",m:"Every screen, algo, and risk system drinks from it. Latency here is measured in microseconds."},
+{t:"Reference Data",c:5,p:"The quiet facts everything depends on: security details, calendars, counterparty records.",m:"Wrong reference data breaks trades silently, everywhere, at once. Unglamorous and mission-critical."},
+{t:"Golden Source",c:5,p:"The one system officially trusted as the truth for a piece of data.",m:"When five systems disagree on a price, the golden source wins. Deciding which one — that's a BA workshop."},
+{t:"Audit Trail",c:5,p:"The unforgeable diary: who did what, when, and from where.",m:"Regulators demand it, investigations depend on it, and good systems write it automatically."},
+{t:"API",c:5,p:"A doorway systems use to talk to each other, with rules about what can be asked.",m:"Modern market infrastructure is APIs all the way down. BAs write the requirements for what flows through them."}
+];
+
+/* ---------- decode mode ---------- */
+const grid=document.getElementById("grid");
+const countEl=document.getElementById("count");
+const q=document.getElementById("q");
+const chipsEl=document.getElementById("chips");
+let activeCat=-1;
+
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML;}
+
+function render(){
+  const query=q.value.trim().toLowerCase();
+  const list=TERMS.filter(x=>{
+    const catOk = activeCat===-1 || x.c===activeCat;
+    const qOk = !query || x.t.toLowerCase().includes(query) || x.p.toLowerCase().includes(query) || x.m.toLowerCase().includes(query);
+    return catOk && qOk;
+  });
+  if(!list.length){
+    grid.innerHTML=`<div class="empty"><div class="big">Not in the book — yet.</div>Try another word, or clear the filter. The wall is tall; the door is patient.</div>`;
+  }else{
+    grid.innerHTML=list.map((x,idx)=>{
+      const hasViz=!!DIAG[x.t];
+      return `
+      <div class="card${hasViz?' has-viz':''}" data-term="${esc(x.t)}">
+        <div class="top">
+          <div class="cat">${CATS[x.c]}</div>
+          ${hasViz?`<button class="badge" type="button" data-viz="${esc(x.t)}">◆ visual</button>`:""}
+        </div>
+        <h3>${esc(x.t)}</h3>
+        <p class="plain">${esc(x.p)}</p>
+        <p class="more">${esc(x.m)}</p>
+        ${hasViz?`<div class="viz">${DIAG[x.t]}</div>`:""}
+      </div>`;
+    }).join("");
+    grid.querySelectorAll(".badge").forEach(b=>{
+      b.addEventListener("click",e=>{
+        e.currentTarget.closest(".card").classList.toggle("open");
+      });
+    });
+  }
+  countEl.innerHTML = `<b>${list.length}</b> of ${TERMS.length} terms decoded`;
+}
+
+const allChip=document.createElement("button");
+allChip.className="chip active";allChip.textContent="All";
+allChip.addEventListener("click",()=>{activeCat=-1;setChip(allChip);render();});
+chipsEl.appendChild(allChip);
+CATS.forEach((c,i)=>{
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=c;
+  b.addEventListener("click",()=>{activeCat=i;setChip(b);render();});
+  chipsEl.appendChild(b);
+});
+function setChip(el){document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));el.classList.add("active");}
+
+q.addEventListener("input",render);
+document.getElementById("surprise").addEventListener("click",()=>{
+  const t=TERMS[Math.floor(Math.random()*TERMS.length)];
+  activeCat=-1;setChip(allChip);
+  q.value=t.t;render();
+  const card=grid.querySelector(".card.has-viz");
+  if(card)card.classList.add("open");
+});
+
+/* ---------- test mode ---------- */
+const flash=document.getElementById("flash");
+const fcat=document.getElementById("fcat"),fplain=document.getElementById("fplain"),
+      fterm=document.getElementById("fterm"),fmore=document.getElementById("fmore"),
+      fcountEl=document.getElementById("fcount");
+let deck=[],deckPos=0,seen=0;
+
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function nextCard(){
+  if(deckPos>=deck.length){deck=shuffle([...TERMS]);deckPos=0;}
+  const t=deck[deckPos++];seen++;
+  flash.classList.remove("revealed");
+  fcat.textContent=CATS[t.c];
+  fplain.textContent=t.p;
+  fterm.textContent=t.t;
+  fmore.textContent=t.m;
+  fcountEl.innerHTML=`card <b>${seen}</b> · ${TERMS.length} terms in the deck`;
+}
+document.getElementById("frevbtn").addEventListener("click",()=>flash.classList.add("revealed"));
+document.getElementById("fnextbtn").addEventListener("click",nextCard);
+
+/* ---------- mode switch ---------- */
+const decodeView=document.getElementById("decodeView");
+const testZone=document.getElementById("testZone");
+const mDecode=document.getElementById("modeDecode");
+const mTest=document.getElementById("modeTest");
+mDecode.addEventListener("click",()=>{
+  mDecode.classList.add("active");mTest.classList.remove("active");
+  decodeView.classList.remove("off");testZone.classList.remove("on");
+});
+mTest.addEventListener("click",()=>{
+  mTest.classList.add("active");mDecode.classList.remove("active");
+  decodeView.classList.add("off");testZone.classList.add("on");
+  if(!deck.length)nextCard();
+});
+
+render();
+</script>
+</body>
+</html>
