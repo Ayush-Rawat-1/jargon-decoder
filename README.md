@@ -28,7 +28,7 @@ One self-contained `index.html`. No frameworks, no build step, no dependencies, 
 
 ## Part of BodhiProtocol
 
-*Awakening Through Play* — tools and games that make complex systems simple.
+Tools and games that make complex systems simple.
 More at [github.com/BodhiProtocol](https://github.com/BodhiProtocol).
 
 > "The beginning of wisdom is the definition of terms." — Socrates
