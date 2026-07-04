@@ -220,7 +220,7 @@ footer .meta a:hover{color:var(--gold)}
 
 <section class="hero wrap">
   <h1>Jargon is a wall.<br><em>This is a door.</em></h1>
-  <p>80+ capital markets terms, decoded into plain language. Search, browse by category, or test yourself with flashcards.</p>
+  <p>89 capital markets terms, decoded into plain language. Search, browse by category, or test yourself with flashcards.</p>
 </section>
 
 <div class="modes wrap">
@@ -465,6 +465,10 @@ const TERMS = [
 {t:"Convertible Bond",c:2,p:"A bond that can turn into shares later, if the stock price makes that worthwhile.",m:"Investors get a bond's safety now and an option on equity upside later — the issuer borrows cheaper because of that option."},
 {t:"REIT",c:2,p:"A fund that lets you own a slice of rent-generating real estate without ever owning a building.",m:"Real Estate Investment Trust — trades like a stock, and pays out most of its rental income as dividends by law."},
 {t:"ADR/GDR",c:2,p:"How a company from one country lists its shares for investors in another, without a second IPO.",m:"American Depositary Receipts trade in the US, Global Depositary Receipts trade internationally — both represent shares held in trust back home."},
+{t:"Market Capitalization",c:2,p:"The total value of a company's shares — share price multiplied by shares outstanding.",m:"Used to bucket companies as large-cap, mid-cap, or small-cap. It's the market's opinion of size, not a balance sheet fact."},
+{t:"P/E Ratio",c:2,p:"How many years of current earnings it would take to pay back today's share price.",m:"Price divided by earnings per share. A high P/E means the market is pricing in growth — or overpaying for it."},
+{t:"Index Fund",c:2,p:"A fund that doesn't try to beat the market — it just buys the market, in the same proportions as the index.",m:"Lower fees than an actively managed fund, because there's no manager trying to pick winners. Track the Nifty 50, and that's exactly what you get."},
+{t:"Debenture",c:2,p:"A bond by another name — a company's promise to repay a loan, usually unsecured against any specific asset.",m:"In India, 'debenture' and 'corporate bond' are used almost interchangeably. Convertible debentures can later turn into shares."},
 {t:"KYC",c:3,p:"Know Your Customer — proving people are who they claim before they touch the market.",m:"Identity, address, and risk profile, verified. The first gate every investor passes through."},
 {t:"AML",c:3,p:"Anti-Money Laundering — making sure the market isn't a washing machine for dirty money.",m:"Systems watch for suspicious patterns and report them. A pillar of every fraud programme."},
 {t:"Surveillance",c:3,p:"Watching every trade for patterns that shouldn't exist.",m:"Spoofing, layering, pump-and-dump — algorithms hunt algorithms. Alerts land on human desks for judgment."},
@@ -491,6 +495,10 @@ const TERMS = [
 {t:"HFT",c:4,p:"Algorithmic trading turned up to the extreme — positions held for fractions of a second, profit measured in fractions of a cent.",m:"High-Frequency Trading — wins are made in microseconds and enormous volume, not conviction. Speed itself is the edge."},
 {t:"Depository Participant",c:4,p:"Your actual point of contact for holding shares electronically — usually your broker or bank, acting as an agent of the depository.",m:"NSDL and CDSL are the depositories; your DP is the retail-facing counter that opens and manages your demat account."},
 {t:"Foreign Portfolio Investor",c:4,p:"An overseas investor who buys into Indian markets without taking a controlling stake in any company.",m:"Registered and regulated by SEBI as an FPI; their custodian handles settlement since they don't hold assets directly."},
+{t:"Retail Investor",c:4,p:"You, most likely — an individual investing personal money, not managing someone else's.",m:"Smaller order sizes, no special market access, but collectively retail investors move real volume in markets like India's."},
+{t:"Institutional Investor",c:4,p:"A professional managing large pools of other people's money — pension funds, insurers, mutual funds.",m:"Bigger orders, more market influence, and usually access that individual retail investors don't get."},
+{t:"Proprietary Trading",c:4,p:"A firm trading with its own money for its own profit — not on behalf of any client.",m:"Also called \"prop trading.\" The firm keeps all the gains and eats all the losses itself."},
+{t:"Free Float",c:4,p:"The portion of a company's shares actually available to trade — excluding what promoters and insiders hold tightly.",m:"Most major indices, including Nifty and Sensex, weight companies by free float, not total market cap."},
 {t:"FIX Protocol",c:5,p:"The common language trading systems speak to each other. Since 1992.",m:"Orders, executions, cancellations — all standardised messages. Tag 35=D means \"new order\". Every OMS speaks it."},
 {t:"OMS",c:5,p:"Order Management System — where orders are born, validated, tracked, and audited.",m:"The buy-side's book of record for every order's life. The BA's most-visited system."},
 {t:"EMS",c:5,p:"Execution Management System — the trader's cockpit for working orders in the market.",m:"Real-time data, algos, smart routing. The OMS decides what; the EMS decides how."},
