@@ -16,11 +16,11 @@ Business analysts live at the translation layer between business and technology.
 
 ## What's inside
 
-Seven categories — six mirroring the [Trade Lifecycle Explorer](https://github.com/BodhiProtocol/trade-lifecycle-explorer), plus Investment Banking for the deal-making side of markets:
+Eight categories — six mirroring the [Trade Lifecycle Explorer](https://github.com/BodhiProtocol/trade-lifecycle-explorer), plus Investment Banking for the deal-making side of markets and Investment Analysis for how investments actually get valued:
 
-`Lifecycle · Clearing & Settlement · Instruments · Risk & Compliance · Market Structure · Technology · Investment Banking`
+`Lifecycle · Clearing & Settlement · Instruments · Risk & Compliance · Market Structure · Technology · Investment Banking · Investment Analysis`
 
-Features: live search across terms and definitions, category filters, a **Surprise me** button for wandering, **mini-diagrams** for the ten most spatial concepts (novation, netting, DvP, T+1, bid-ask spread, ex-date, order book, options, circuit breakers, STP — look for the ◆ visual badge), and a **Test me** flashcard mode: read the plain-language definition, guess the term, reveal.
+Features: live search across terms and definitions, category filters, a **Surprise me** button for wandering, a **mini-diagram for every single term** (look for the ◆ visual badge), and a **Test me** flashcard mode: read the plain-language definition, guess the term, reveal.
 
 ## Tech
 
