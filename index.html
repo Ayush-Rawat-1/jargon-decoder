@@ -1528,6 +1528,75 @@ const DIAG = {
 <text class="vs" x="160" y="88" text-anchor="middle" fill="${MU}">Coverage owns the client</text>
 <text class="vs" x="160" y="104" text-anchor="middle" fill="${MU}">relationship by sector.</text>
 <text class="vs" x="160" y="124" text-anchor="middle" fill="${MU}">Product groups execute the actual deal.</text>
+</svg>`,
+
+"Counterparty":`<svg viewBox="0 0 320 130" aria-label="A counterparty is the other side of your trade">
+<rect x="30" y="40" width="100" height="40" rx="8" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="80" y="64" text-anchor="middle">You</text>
+<line x1="132" y1="60" x2="188" y2="60" stroke="${MU}" stroke-width="1.2"/>
+<text class="vs" x="160" y="52" text-anchor="middle" style="font-size:8px" fill="${MU}">the trade</text>
+<rect x="190" y="40" width="100" height="40" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="240" y="64" text-anchor="middle" style="font-size:9px">Counterparty</text>
+<text class="vs" x="160" y="104" text-anchor="middle" fill="${MU}">Whoever's on the hook to deliver</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">what you're owed.</text>
+</svg>`,
+
+"Counterparty Risk":`<svg viewBox="0 0 320 130" aria-label="Counterparty risk is the risk the other side does not pay">
+<rect x="30" y="40" width="90" height="40" rx="8" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="75" y="64" text-anchor="middle">You</text>
+<line x1="122" y1="60" x2="178" y2="60" stroke="${G}" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text class="vt" x="150" y="48" text-anchor="middle" fill="${G}" style="font-size:14px">?</text>
+<rect x="180" y="40" width="110" height="40" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="235" y="64" text-anchor="middle" style="font-size:9px">Will they pay?</text>
+<text class="vs" x="160" y="104" text-anchor="middle" fill="${MU}">The reason margin, collateral,</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">and clearing houses exist.</text>
+</svg>`,
+
+"Default":`<svg viewBox="0 0 320 130" aria-label="A default is a counterparty failing to deliver what is owed">
+<rect x="30" y="40" width="100" height="40" rx="8" class="vg"/>
+<text class="vgt" x="80" y="58" text-anchor="middle" style="font-size:9px">Counterparty</text>
+<text class="vgt" x="80" y="72" text-anchor="middle" style="font-size:9px">fails to pay</text>
+<line x1="132" y1="60" x2="178" y2="60" stroke="${MU}" stroke-width="1.2"/>
+<rect x="180" y="40" width="110" height="40" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="235" y="58" text-anchor="middle" style="font-size:9px">Margin seized,</text>
+<text class="vs" x="235" y="72" text-anchor="middle" style="font-size:9px">CCP steps in</text>
+<text class="vs" x="160" y="104" text-anchor="middle" fill="${MU}">The trade still settles.</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">The safety net does its job.</text>
+</svg>`,
+
+"Exposure":`<svg viewBox="0 0 320 130" aria-label="Exposure is how much you would lose if a counterparty defaulted right now">
+<text class="vs" x="160" y="30" text-anchor="middle" fill="${MU}">If they defaulted right now...</text>
+<rect x="60" y="46" width="200" height="24" rx="6" fill="${P2}" stroke="${L}"/>
+<rect x="60" y="46" width="130" height="24" rx="6" class="vg"/>
+<text class="vgt" x="125" y="62" text-anchor="middle" style="font-size:9px">₹ at risk</text>
+<text class="vs" x="160" y="96" text-anchor="middle" fill="${MU}">Recalculated constantly as prices move.</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">Risk teams watch it like altitude.</text>
+</svg>`,
+
+"Bilateral":`<svg viewBox="0 0 320 130" aria-label="A bilateral trade is direct between two counterparties with no CCP">
+<rect x="30" y="40" width="90" height="40" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="75" y="64" text-anchor="middle">Party A</text>
+<line x1="122" y1="60" x2="198" y2="60" stroke="${LO}" stroke-width="1.6"/>
+<text class="vs" x="160" y="50" text-anchor="middle" style="font-size:8px" fill="${MU}">direct, no middleman</text>
+<rect x="200" y="40" width="90" height="40" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="245" y="64" text-anchor="middle">Party B</text>
+<text class="vs" x="160" y="104" text-anchor="middle" fill="${MU}">More flexible, but you carry</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">the counterparty risk yourself.</text>
+</svg>`,
+
+"ISDA":`<svg viewBox="0 0 320 130" aria-label="One ISDA master agreement covers every derivative trade with a counterparty">
+<rect x="110" y="24" width="100" height="34" rx="7" class="vg"/>
+<text class="vgt" x="160" y="45" text-anchor="middle" style="font-size:9px">Master Agreement</text>
+<line x1="130" y1="60" x2="80" y2="82" stroke="${MU}" stroke-width="1.1"/>
+<line x1="160" y1="60" x2="160" y2="82" stroke="${MU}" stroke-width="1.1"/>
+<line x1="190" y1="60" x2="240" y2="82" stroke="${MU}" stroke-width="1.1"/>
+<rect x="45" y="84" width="70" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="80" y="101" text-anchor="middle" style="font-size:8px">Swap</text>
+<rect x="125" y="84" width="70" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="160" y="101" text-anchor="middle" style="font-size:8px">Option</text>
+<rect x="205" y="84" width="70" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="240" y="101" text-anchor="middle" style="font-size:8px">Forward</text>
+<text class="vs" x="160" y="124" text-anchor="middle" fill="${MU}">Signed once, covers everything after.</text>
 </svg>`
 };
 
