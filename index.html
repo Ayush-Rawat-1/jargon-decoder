@@ -55,16 +55,19 @@ body{
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 
 header{padding:26px 0 0;display:flex;justify-content:center}
-.theme-toggle{
-  position:fixed;top:20px;right:20px;z-index:10;
-  background:var(--panel);border:1px solid var(--line);border-radius:999px;
-  padding:8px 18px;color:var(--lavender);font-family:'Inter',sans-serif;font-weight:500;
-  font-size:.8rem;cursor:pointer;transition:all .25s ease;
+.theme-toggle{position:fixed;top:20px;right:20px;z-index:10;display:flex;gap:0}
+.theme-btn{
+  background:var(--panel);border:1px solid var(--line);
+  color:var(--lavender);font-family:'Inter',sans-serif;font-weight:500;
+  font-size:.76rem;padding:7px 16px;cursor:pointer;transition:all .25s ease;
 }
-.theme-toggle:hover{border-color:var(--lotus)}
-.theme-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.theme-btn:first-child{border-radius:999px 0 0 999px;border-right:none}
+.theme-btn:last-child{border-radius:0 999px 999px 0}
+.theme-btn.active{background:var(--lotus);border-color:var(--lotus);color:var(--on-accent)}
+.theme-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 @media (max-width:640px){
-  .theme-toggle{top:12px;right:12px;padding:7px 14px;font-size:.74rem}
+  .theme-toggle{top:12px;right:12px}
+  .theme-btn{padding:6px 12px;font-size:.7rem}
 }
 .brand{
   font-family:'IBM Plex Mono',monospace;font-size:.78rem;
@@ -240,7 +243,10 @@ footer .meta a:hover{color:var(--gold)}
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle" type="button">Pastel</button>
+<div class="theme-toggle" role="group" aria-label="Theme">
+  <button class="theme-btn active" id="themeDark" type="button">Dark</button>
+  <button class="theme-btn" id="themeLight" type="button">Light</button>
+</div>
 
 <header>
   <div class="brand">Bodhi<b>Protocol</b></div>
@@ -295,17 +301,19 @@ footer .meta a:hover{color:var(--gold)}
 <script>
 /* ---------- theme toggle ---------- */
 const THEME_KEY = "jargon-decoder-theme";
-const themeToggle = document.getElementById("themeToggle");
+const themeDarkBtn = document.getElementById("themeDark");
+const themeLightBtn = document.getElementById("themeLight");
 function applyTheme(theme){
-  document.documentElement.classList.toggle("pastel", theme === "pastel");
-  themeToggle.textContent = theme === "pastel" ? "Dark" : "Pastel";
+  document.documentElement.classList.toggle("pastel", theme === "light");
+  themeDarkBtn.classList.toggle("active", theme === "dark");
+  themeLightBtn.classList.toggle("active", theme === "light");
   localStorage.setItem(THEME_KEY, theme);
 }
-applyTheme(localStorage.getItem(THEME_KEY) || "dark");
-themeToggle.addEventListener("click", () => {
-  const current = document.documentElement.classList.contains("pastel") ? "pastel" : "dark";
-  applyTheme(current === "pastel" ? "dark" : "pastel");
-});
+let savedTheme = localStorage.getItem(THEME_KEY) || "dark";
+if (savedTheme === "pastel") savedTheme = "light";
+applyTheme(savedTheme);
+themeDarkBtn.addEventListener("click", () => applyTheme("dark"));
+themeLightBtn.addEventListener("click", () => applyTheme("light"));
 
 const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis"];
 
