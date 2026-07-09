@@ -145,6 +145,7 @@ header{padding:26px 0 0;display:flex;justify-content:center}
   font-family:'IBM Plex Mono',monospace;font-size:.62rem;
   letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
 }
+.top-actions{display:flex;gap:6px;align-items:center}
 .badge{
   font-family:'IBM Plex Mono',monospace;font-size:.6rem;
   letter-spacing:.14em;text-transform:uppercase;
@@ -153,6 +154,15 @@ header{padding:26px 0 0;display:flex;justify-content:center}
 }
 .badge:hover{background:var(--lavender)}
 .badge:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.link-badge{
+  font-family:'IBM Plex Mono',monospace;font-size:.6rem;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--lavender);background:none;border:1px solid var(--line);border-radius:999px;
+  padding:1px 9px;cursor:pointer;transition:all .25s ease;
+}
+.link-badge:hover{border-color:var(--lotus)}
+.link-badge:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.link-badge.copied{border-color:var(--gold);color:var(--gold)}
 .card h3{
   font-family:'IBM Plex Mono',monospace;font-weight:500;
   font-size:1.05rem;color:var(--mist);margin-bottom:8px;letter-spacing:.02em;
@@ -2880,7 +2890,10 @@ function render(){
       <div class="card${hasViz?' has-viz':''}" data-term="${esc(x.t)}">
         <div class="top">
           <div class="cat">${CATS[x.c]}</div>
-          ${hasViz?`<button class="badge" type="button" data-viz="${esc(x.t)}">◆ visual</button>`:""}
+          <div class="top-actions">
+            <button class="link-badge" type="button" data-term="${esc(x.t)}">copy link</button>
+            ${hasViz?`<button class="badge" type="button" data-viz="${esc(x.t)}">◆ visual</button>`:""}
+          </div>
         </div>
         <h3>${esc(x.t)}</h3>
         <p class="plain">${esc(x.p)}</p>
@@ -2891,6 +2904,36 @@ function render(){
     grid.querySelectorAll(".badge").forEach(b=>{
       b.addEventListener("click",e=>{
         e.currentTarget.closest(".card").classList.toggle("open");
+      });
+    });
+    grid.querySelectorAll(".link-badge").forEach(b=>{
+      b.addEventListener("click",e=>{
+        const btn=e.currentTarget;
+        const term=btn.getAttribute("data-term");
+        const url=`${window.location.origin}${window.location.pathname}?term=${encodeURIComponent(term)}`;
+        const showState=(text,cls)=>{
+          const original="copy link";
+          btn.textContent=text;
+          if(cls)btn.classList.add(cls);
+          setTimeout(()=>{btn.textContent=original;btn.classList.remove("copied");},1500);
+        };
+        const fallbackCopy=()=>{
+          const ta=document.createElement("textarea");
+          ta.value=url;ta.style.position="fixed";ta.style.opacity="0";
+          document.body.appendChild(ta);ta.select();
+          try{
+            document.execCommand("copy");
+            showState("copied!","copied");
+          }catch(err){
+            showState("couldn't copy");
+          }
+          document.body.removeChild(ta);
+        };
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          navigator.clipboard.writeText(url).then(()=>showState("copied!","copied")).catch(fallbackCopy);
+        }else{
+          fallbackCopy();
+        }
       });
     });
   }
