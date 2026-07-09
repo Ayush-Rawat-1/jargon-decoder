@@ -315,7 +315,7 @@ applyTheme(savedTheme);
 themeDarkBtn.addEventListener("click", () => applyTheme("dark"));
 themeLightBtn.addEventListener("click", () => applyTheme("light"));
 
-const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis","Behavioral Finance"];
+const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis","Behavioral Finance","Economics"];
 
 /* ---------- mini diagram library ---------- */
 /* Each returns an SVG string sized for a card (~320px wide). Colors via CSS classes. */
@@ -2295,6 +2295,145 @@ const DIAG = {
 <text class="vgt" x="225" y="20" text-anchor="middle" style="font-size:7.5px">still around today</text>
 <text class="vs" x="160" y="105" text-anchor="middle" fill="${MU}">Only measuring survivors flatters</text>
 <text class="vs" x="160" y="121" text-anchor="middle" fill="${MU}">the average, not the real picture.</text>
+</svg>`,
+
+"Inflation":`<svg viewBox="0 0 320 148" aria-label="Inflation means the same basket of goods costs more money over time">
+<circle cx="80" cy="55" r="26" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="80" y="52" text-anchor="middle" style="font-size:8px">Chai cup</text>
+<text class="vs" x="80" y="65" text-anchor="middle" style="font-size:9px">₹5 · 2014</text>
+<line x1="112" y1="55" x2="185" y2="55" stroke="${G}" stroke-width="1.6"/>
+<circle cx="230" cy="55" r="32" class="vg"/>
+<text class="vgt" x="230" y="52" text-anchor="middle" style="font-size:8px">Same chai cup</text>
+<text class="vgt" x="230" y="66" text-anchor="middle" style="font-size:9.5px">₹15 · 2024</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">Same cup, same tea —</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">three times the price, a decade later.</text>
+</svg>`,
+
+"GDP":`<svg viewBox="0 0 320 130" aria-label="GDP is the total value of everything a country produced this year">
+<rect x="20" y="30" width="50" height="28" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="45" y="48" text-anchor="middle" style="font-size:7px">Factories</text>
+<rect x="80" y="30" width="50" height="28" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="105" y="48" text-anchor="middle" style="font-size:7px">Services</text>
+<rect x="140" y="30" width="50" height="28" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="165" y="48" text-anchor="middle" style="font-size:7px">Farms</text>
+<text class="vt" x="205" y="50" text-anchor="middle" fill="${MU}" style="font-size:14px">=</text>
+<rect x="220" y="26" width="80" height="36" rx="8" class="vg"/>
+<text class="vgt" x="260" y="49" text-anchor="middle" style="font-size:8.5px">GDP</text>
+<text class="vs" x="160" y="94" text-anchor="middle" fill="${MU}">"India grew 7%" means GDP grew 7%.</text>
+<text class="vs" x="160" y="110" text-anchor="middle" fill="${MU}">The one number everyone quotes.</text>
+</svg>`,
+
+"Interest Rate":`<svg viewBox="0 0 320 142" aria-label="Interest rate is the price of borrowing money or the reward for lending it">
+<circle cx="160" cy="65" r="40" fill="none" stroke="${L}" stroke-width="6"/>
+<path d="M160,65 L185,35" stroke="${G}" stroke-width="3" stroke-linecap="round"/>
+<circle cx="160" cy="65" r="5" fill="${G}"/>
+<text class="vs" x="95" y="55" text-anchor="middle" fill="${MU}" style="font-size:8px">cheap loans</text>
+<text class="vs" x="225" y="55" text-anchor="middle" fill="${MU}" style="font-size:8px">expensive loans</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">Raise it, borrowing slows.</text>
+<text class="vs" x="160" y="138" text-anchor="middle" fill="${MU}">Cut it, spending picks up.</text>
+</svg>`,
+
+"Recession":`<svg viewBox="0 0 320 130" aria-label="A recession is the economy shrinking for two consecutive quarters">
+<line x1="30" y1="40" x2="290" y2="40" stroke="${L}" stroke-width="1" stroke-dasharray="2 2"/>
+<text class="vs" x="270" y="34" text-anchor="middle" fill="${MU}" style="font-size:7px">growth</text>
+<path d="M30,60 L110,45 L170,70 L230,85 L290,80" fill="none" stroke="${G}" stroke-width="1.8"/>
+<circle cx="170" cy="70" r="4" fill="${G}"/>
+<circle cx="230" cy="85" r="4" fill="${G}"/>
+<text class="vgt" x="200" y="102" text-anchor="middle" style="font-size:7.5px">Q1 and Q2, both shrinking</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">Two straight quarters of shrinking.</text>
+</svg>`,
+
+"Monetary Policy":`<svg viewBox="0 0 320 130" aria-label="Monetary policy is the central bank managing the economy mainly through interest rates">
+<rect x="40" y="30" width="100" height="40" rx="8" fill="${P2}" stroke="${LO}" stroke-width="1.4"/>
+<text class="vs" x="90" y="46" text-anchor="middle" style="font-size:8.5px">RBI</text>
+<text class="vs" x="90" y="60" text-anchor="middle" style="font-size:7px" fill="${MU}">central bank</text>
+<line x1="145" y1="50" x2="185" y2="50" stroke="${G}" stroke-width="1.6"/>
+<rect x="190" y="30" width="100" height="40" rx="8" class="vg"/>
+<text class="vgt" x="240" y="46" text-anchor="middle" style="font-size:8.5px">Interest rates</text>
+<text class="vgt" x="240" y="60" text-anchor="middle" style="font-size:7px">up or down</text>
+<text class="vs" x="160" y="100" text-anchor="middle" fill="${MU}">Fight inflation, or boost growth —</text>
+<text class="vs" x="160" y="116" text-anchor="middle" fill="${MU}">one lever does both.</text>
+</svg>`,
+
+"Fiscal Policy":`<svg viewBox="0 0 320 130" aria-label="Fiscal policy is the government managing the economy through spending and taxation">
+<rect x="40" y="30" width="100" height="40" rx="8" fill="${P2}" stroke="${LO}" stroke-width="1.4"/>
+<text class="vs" x="90" y="46" text-anchor="middle" style="font-size:8.5px">Government</text>
+<text class="vs" x="90" y="60" text-anchor="middle" style="font-size:7px" fill="${MU}">Parliament, not RBI</text>
+<line x1="145" y1="50" x2="185" y2="50" stroke="${G}" stroke-width="1.6"/>
+<rect x="190" y="30" width="100" height="40" rx="8" class="vg"/>
+<text class="vgt" x="240" y="46" text-anchor="middle" style="font-size:8.5px">Spending + Taxes</text>
+<text class="vgt" x="240" y="60" text-anchor="middle" style="font-size:7px">roads, subsidies, tax cuts</text>
+<text class="vs" x="160" y="100" text-anchor="middle" fill="${MU}">The government's lever —</text>
+<text class="vs" x="160" y="116" text-anchor="middle" fill="${MU}">not interest rates, spending and tax.</text>
+</svg>`,
+
+"Yield Curve":`<svg viewBox="0 0 320 140" aria-label="A yield curve plots bond yields from short-term to long-term, and inverts before recessions">
+<text class="vs" x="80" y="20" text-anchor="middle" fill="${MU}" style="font-size:8px">Normal</text>
+<line x1="30" y1="55" x2="130" y2="30" stroke="${LO}" stroke-width="1.8"/>
+<text class="vs" x="80" y="66" text-anchor="middle" fill="${MU}" style="font-size:7px">short → long, rising</text>
+<text class="vgt" x="240" y="20" text-anchor="middle" style="font-size:8px">Inverted</text>
+<line x1="190" y1="30" x2="290" y2="55" stroke="${G}" stroke-width="1.8"/>
+<text class="vs" x="240" y="66" text-anchor="middle" fill="${MU}" style="font-size:7px">short &gt; long — a warning sign</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">One of the most-watched recession</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">warning signs there is.</text>
+</svg>`,
+
+"Quantitative Easing":`<svg viewBox="0 0 320 130" aria-label="Quantitative easing is a central bank creating new money to buy bonds and inject cash into the system">
+<rect x="30" y="30" width="90" height="36" rx="8" fill="${P2}" stroke="${LO}"/>
+<text class="vs" x="75" y="46" text-anchor="middle" style="font-size:8px">Central bank</text>
+<text class="vs" x="75" y="59" text-anchor="middle" style="font-size:7px" fill="${MU}">creates new money</text>
+<line x1="122" y1="48" x2="168" y2="48" stroke="${G}" stroke-width="1.6"/>
+<rect x="172" y="30" width="120" height="36" rx="8" class="vg"/>
+<text class="vgt" x="232" y="46" text-anchor="middle" style="font-size:8px">Buys bonds</text>
+<text class="vgt" x="232" y="59" text-anchor="middle" style="font-size:7px">cash flows into the system</text>
+<text class="vs" x="160" y="100" text-anchor="middle" fill="${MU}">Used when rates are already near zero —</text>
+<text class="vs" x="160" y="116" text-anchor="middle" fill="${MU}">2008 and COVID both triggered it.</text>
+</svg>`,
+
+"Stagflation":`<svg viewBox="0 0 320 130" aria-label="Stagflation is when prices rise fast but the economy barely grows at all">
+<line x1="40" y1="90" x2="150" y2="30" stroke="${G}" stroke-width="1.8"/>
+<text class="vgt" x="130" y="22" text-anchor="middle" style="font-size:8px">Inflation ↑</text>
+<line x1="170" y1="70" x2="280" y2="68" stroke="${LO}" stroke-width="1.8"/>
+<text class="vs" x="230" y="58" text-anchor="middle" fill="${MU}" style="font-size:8px">Growth, flat</text>
+<text class="vs" x="160" y="108" text-anchor="middle" fill="${MU}">Expensive living,</text>
+<text class="vs" x="160" y="124" text-anchor="middle" fill="${MU}">without the growth to match.</text>
+</svg>`,
+
+"Fiscal Deficit":`<svg viewBox="0 0 320 148" aria-label="Fiscal deficit is the gap between what a government spends and what it collects in taxes">
+<rect x="70" y="60" width="60" height="40" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="100" y="112" text-anchor="middle" fill="${MU}" style="font-size:8px">Tax revenue</text>
+<rect x="180" y="20" width="60" height="80" class="vg"/>
+<text class="vgt" x="210" y="112" text-anchor="middle" style="font-size:8px">Spending</text>
+<line x1="135" y1="60" x2="175" y2="60" stroke="${G}" stroke-width="1.2" stroke-dasharray="3 2"/>
+<text class="vgt" x="155" y="45" text-anchor="middle" style="font-size:7px">the gap</text>
+<text class="vs" x="160" y="130" text-anchor="middle" fill="${MU}">The gap is covered by borrowing —</text>
+<text class="vs" x="160" y="146" text-anchor="middle" fill="${MU}">today's deficit is tomorrow's debt.</text>
+</svg>`,
+
+"CPI":`<svg viewBox="0 0 320 130" aria-label="CPI is the Consumer Price Index, the basket of goods used to measure inflation">
+<rect x="20" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="42" y="47" text-anchor="middle" style="font-size:7px">Food</text>
+<rect x="70" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="92" y="47" text-anchor="middle" style="font-size:7px">Fuel</text>
+<rect x="120" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="142" y="47" text-anchor="middle" style="font-size:7px">Rent</text>
+<text class="vt" x="195" y="48" text-anchor="middle" fill="${MU}" style="font-size:13px">→</text>
+<rect x="215" y="26" width="80" height="34" rx="8" class="vg"/>
+<text class="vgt" x="255" y="47" text-anchor="middle" style="font-size:9px">CPI: 6%</text>
+<text class="vs" x="160" y="94" text-anchor="middle" fill="${MU}">The basket behind every</text>
+<text class="vs" x="160" y="110" text-anchor="middle" fill="${MU}">"inflation is 6%" headline.</text>
+</svg>`,
+
+"Repo Rate":`<svg viewBox="0 0 320 135" aria-label="Repo rate is the interest rate at which the RBI lends short-term money to commercial banks">
+<rect x="30" y="35" width="90" height="40" rx="8" fill="${P2}" stroke="${LO}" stroke-width="1.4"/>
+<text class="vs" x="75" y="52" text-anchor="middle" style="font-size:8.5px">RBI</text>
+<text class="vs" x="75" y="65" text-anchor="middle" style="font-size:7px" fill="${MU}">lends short-term</text>
+<line x1="122" y1="55" x2="168" y2="55" stroke="${G}" stroke-width="1.6"/>
+<text class="vgt" x="145" y="45" text-anchor="middle" style="font-size:7px">at the repo rate</text>
+<rect x="172" y="35" width="110" height="40" rx="8" class="vg"/>
+<text class="vgt" x="227" y="52" text-anchor="middle" style="font-size:8.5px">Commercial banks</text>
+<text class="vs" x="160" y="105" text-anchor="middle" fill="${MU}">Home loans, FDs, business loans —</text>
+<text class="vs" x="160" y="121" text-anchor="middle" fill="${MU}">all follow this one number.</text>
 </svg>`
 };
 
@@ -2500,7 +2639,19 @@ const TERMS = [
 {t:"Availability Heuristic",c:8,p:"You remember the one friend who got rich on crypto, not the ten who lost money.",m:"Dramatic stories stick in memory far more than boring statistics — so you judge the odds by what you can recall, not what's actually likely."},
 {t:"Disposition Effect",c:8,p:"Selling the winning stock for a quick profit, and holding the losing one \"until it recovers.\"",m:"Backwards logic: you should let winners run and cut losers fast. Most investors do the exact opposite, because selling a winner feels good and selling a loser feels like admitting defeat."},
 {t:"FOMO",c:8,p:"Buying a stock at its peak because everyone on Twitter is already up 300%.",m:"Fear Of Missing Out. By the time a trade is exciting enough to talk about at a dinner party, the easy money is usually already made."},
-{t:"Survivorship Bias",c:8,p:"Studying only the mutual funds that still exist today — not the ones that failed and quietly closed.",m:"The funds that blew up aren't around to be measured, so any \"average\" you calculate from survivors alone is flattering fiction, not the real picture."}
+{t:"Survivorship Bias",c:8,p:"Studying only the mutual funds that still exist today — not the ones that failed and quietly closed.",m:"The funds that blew up aren't around to be measured, so any \"average\" you calculate from survivors alone is flattering fiction, not the real picture."},
+{t:"Inflation",c:9,p:"₹100 buys less today than it did last year — the same basket of goods just costs more.",m:"A cup of chai that cost ₹5 a decade ago costs ₹15 now. That's inflation — money losing purchasing power over time, quietly, every year."},
+{t:"GDP",c:9,p:"The total value of everything a country produced this year — every good, every service, added up.",m:"When someone says \"India grew at 7%,\" they mean GDP. It's the single number everyone uses to answer \"how's the economy doing?\""},
+{t:"Interest Rate",c:9,p:"The price of borrowing money — or the reward for lending it.",m:"Raise rates, and loans get expensive, spending slows, inflation cools. Cut rates, and borrowing gets cheap, spending picks up. It's the economy's main lever."},
+{t:"Recession",c:9,p:"The economy shrinking for two straight quarters instead of growing.",m:"Companies sell less, hire less, sometimes lay off. It's the technical word for what people just call \"things are bad right now.\""},
+{t:"Monetary Policy",c:9,p:"The central bank's toolkit for managing the economy — mainly by moving interest rates.",m:"In India, this is the RBI's job. Raise rates to fight inflation, cut them to boost a slowing economy."},
+{t:"Fiscal Policy",c:9,p:"The government's toolkit for managing the economy — spending and taxation, not interest rates.",m:"Building highways, cutting income tax, launching subsidies — all fiscal policy. It's Parliament's lever, not the RBI's."},
+{t:"Yield Curve",c:9,p:"A line plotting bond yields from short-term to long-term — normally, longer means higher.",m:"When it flips — short-term yields higher than long-term — it's called an inverted yield curve, and it's one of the most-watched recession warning signs there is."},
+{t:"Quantitative Easing",c:9,p:"A central bank creating new money to buy bonds, pumping cash straight into the financial system.",m:"Used when interest rates are already near zero and there's no more room to cut. The 2008 crisis and COVID both triggered massive rounds of it."},
+{t:"Stagflation",c:9,p:"The worst combination: prices rising fast, but the economy barely growing at all.",m:"Normally inflation and growth move together. Stagflation is when they don't — you get the pain of expensive living without the benefit of a booming economy."},
+{t:"Fiscal Deficit",c:9,p:"The gap between what a government spends and what it actually collects in taxes.",m:"Covered by borrowing — which is why a large fiscal deficit today often means more government debt tomorrow."},
+{t:"CPI",c:9,p:"Consumer Price Index — the actual basket of goods used to measure how fast prices are rising.",m:"When the news says \"inflation is 6%,\" that number came from tracking the changing cost of this basket: food, fuel, rent, and more."},
+{t:"Repo Rate",c:9,p:"The interest rate at which the RBI lends short-term money to commercial banks.",m:"This is the single number that moves everything else — home loan rates, FD returns, business borrowing costs — all follow the repo rate up or down."}
 ];
 
 /* ---------- decode mode ---------- */
