@@ -315,7 +315,7 @@ applyTheme(savedTheme);
 themeDarkBtn.addEventListener("click", () => applyTheme("dark"));
 themeLightBtn.addEventListener("click", () => applyTheme("light"));
 
-const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis","Behavioral Finance","Economics"];
+const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis","Behavioral Finance","Economics","Business Strategy"];
 
 /* ---------- mini diagram library ---------- */
 /* Each returns an SVG string sized for a card (~320px wide). Colors via CSS classes. */
@@ -2434,6 +2434,192 @@ const DIAG = {
 <text class="vgt" x="227" y="52" text-anchor="middle" style="font-size:8.5px">Commercial banks</text>
 <text class="vs" x="160" y="105" text-anchor="middle" fill="${MU}">Home loans, FDs, business loans —</text>
 <text class="vs" x="160" y="121" text-anchor="middle" fill="${MU}">all follow this one number.</text>
+</svg>`,
+
+"Porter's Five Forces":`<svg viewBox="0 0 320 162" aria-label="Porter's Five Forces analyzes the five competitive pressures on an industry's profit">
+<rect x="115" y="64" width="90" height="40" rx="8" class="vg"/>
+<text class="vgt" x="160" y="82" text-anchor="middle" style="font-size:7.5px">Rivalry among</text>
+<text class="vgt" x="160" y="93" text-anchor="middle" style="font-size:7.5px">competitors</text>
+<line x1="160" y1="18" x2="160" y2="61" stroke="${L}" stroke-width="1.3"/>
+<text class="vs" x="160" y="12" text-anchor="middle" fill="${MU}" style="font-size:7px">New entrants</text>
+<line x1="160" y1="152" x2="160" y2="107" stroke="${L}" stroke-width="1.3"/>
+<text class="vs" x="160" y="159" text-anchor="middle" fill="${MU}" style="font-size:7px">Substitutes</text>
+<line x1="45" y1="58" x2="118" y2="76" stroke="${L}" stroke-width="1.3"/>
+<text class="vs" x="35" y="50" text-anchor="middle" fill="${MU}" style="font-size:7px">Suppliers</text>
+<line x1="275" y1="58" x2="202" y2="76" stroke="${L}" stroke-width="1.3"/>
+<text class="vs" x="285" y="50" text-anchor="middle" fill="${MU}" style="font-size:7px">Buyers</text>
+</svg>`,
+
+"SWOT Analysis":`<svg viewBox="0 0 320 130" aria-label="SWOT analysis maps strengths, weaknesses, opportunities, and threats in a four-box grid">
+<rect x="60" y="15" width="100" height="48" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="110" y="43" text-anchor="middle" style="font-size:8.5px">Strengths</text>
+<rect x="160" y="15" width="100" height="48" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="210" y="43" text-anchor="middle" style="font-size:8.5px">Weaknesses</text>
+<rect x="60" y="63" width="100" height="48" class="vg"/>
+<text class="vgt" x="110" y="91" text-anchor="middle" style="font-size:8.5px">Opportunities</text>
+<rect x="160" y="63" width="100" height="48" class="vg"/>
+<text class="vgt" x="210" y="91" text-anchor="middle" style="font-size:8.5px">Threats</text>
+<text class="vs" x="160" y="123" text-anchor="middle" fill="${MU}">Inward-looking on top, outward on bottom.</text>
+</svg>`,
+
+"Core Competency":`<svg viewBox="0 0 320 130" aria-label="A core competency is the one thing a company does better than anyone else">
+<circle cx="60" cy="55" r="16" fill="${P2}" stroke="${L}"/>
+<circle cx="105" cy="70" r="14" fill="${P2}" stroke="${L}"/>
+<circle cx="60" cy="90" r="12" fill="${P2}" stroke="${L}"/>
+<circle cx="200" cy="60" r="30" class="vg"/>
+<text class="vgt" x="200" y="57" text-anchor="middle" style="font-size:7.5px">What we do</text>
+<text class="vgt" x="200" y="68" text-anchor="middle" style="font-size:7.5px">better than anyone</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">Lose sight of it, and you're just</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">another player competing on price.</text>
+</svg>`,
+
+"Economies of Scale":`<svg viewBox="0 0 320 148" aria-label="Economies of scale means average cost per unit falls as production volume rises">
+<line x1="30" y1="95" x2="30" y2="20" stroke="${L}" stroke-width="1"/>
+<line x1="30" y1="95" x2="290" y2="95" stroke="${L}" stroke-width="1"/>
+<path d="M35,28 Q100,38 160,65 Q220,85 285,90" fill="none" stroke="${G}" stroke-width="1.8"/>
+<text class="vs" x="20" y="16" text-anchor="middle" fill="${MU}" style="font-size:6.5px">cost/unit</text>
+<text class="vs" x="288" y="108" text-anchor="middle" fill="${MU}" style="font-size:6.5px">volume</text>
+<text class="vs" x="160" y="130" text-anchor="middle" fill="${MU}">Bigger scale spreads the same fixed</text>
+<text class="vs" x="160" y="144" text-anchor="middle" fill="${MU}">costs over far more units.</text>
+</svg>`,
+
+"Network Effect":`<svg viewBox="0 0 320 140" aria-label="A network effect means a product gets more valuable as more people use it">
+<circle cx="80" cy="30" r="5" class="vg"/>
+<circle cx="60" cy="60" r="5" class="vg"/>
+<circle cx="100" cy="70" r="5" class="vg"/>
+<circle cx="75" cy="95" r="5" class="vg"/>
+<circle cx="120" cy="45" r="5" class="vg"/>
+<line x1="80" y1="30" x2="60" y2="60" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="80" y1="30" x2="100" y2="70" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="80" y1="30" x2="120" y2="45" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="60" y1="60" x2="75" y2="95" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="60" y1="60" x2="100" y2="70" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="100" y1="70" x2="120" y2="45" stroke="${G}" stroke-width="1" opacity=".6"/>
+<line x1="100" y1="70" x2="75" y2="95" stroke="${G}" stroke-width="1" opacity=".6"/>
+<circle cx="240" cy="60" r="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="240" y="85" text-anchor="middle" fill="${MU}" style="font-size:7px">alone, worthless</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">More people using it makes it</text>
+<text class="vs" x="160" y="136" text-anchor="middle" fill="${MU}">more valuable to you, specifically.</text>
+</svg>`,
+
+"First-Mover Advantage":`<svg viewBox="0 0 320 138" aria-label="First-mover advantage is the edge gained from being first to a new market">
+<line x1="30" y1="70" x2="290" y2="70" stroke="${L}" stroke-width="1.2"/>
+<circle cx="80" cy="70" r="7" class="vg"/>
+<line x1="80" y1="63" x2="80" y2="35" stroke="${G}" stroke-width="2"/>
+<path d="M80,35 L110,42 L80,49 Z" fill="${G}"/>
+<text class="vgt" x="95" y="25" text-anchor="middle" style="font-size:7.5px">first mover</text>
+<circle cx="180" cy="70" r="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="180" y="92" text-anchor="middle" fill="${MU}" style="font-size:7px">second mover, copies homework</text>
+<text class="vs" x="160" y="118" text-anchor="middle" fill="${MU}">Locks in customers early — or just</text>
+<text class="vs" x="160" y="134" text-anchor="middle" fill="${MU}">pays to educate a market alone.</text>
+</svg>`,
+
+"Vertical Integration":`<svg viewBox="0 0 320 145" aria-label="Vertical integration means a company owns multiple stages of its own supply chain">
+<rect x="100" y="15" width="120" height="26" rx="6" fill="${P2}" stroke="${L}" opacity=".5" stroke-dasharray="2 2"/>
+<text class="vs" x="160" y="32" text-anchor="middle" style="font-size:7.5px" fill="${MU}">Supplier</text>
+<rect x="100" y="49" width="120" height="26" rx="6" class="vg"/>
+<text class="vgt" x="160" y="66" text-anchor="middle" style="font-size:7.5px">Manufacturing</text>
+<rect x="100" y="83" width="120" height="26" rx="6" fill="${P2}" stroke="${L}" opacity=".5" stroke-dasharray="2 2"/>
+<text class="vs" x="160" y="100" text-anchor="middle" style="font-size:7.5px" fill="${MU}">Distributor</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">Owning the stages around you —</text>
+<text class="vs" x="160" y="142" text-anchor="middle" fill="${MU}">more control, more capital tied up.</text>
+</svg>`,
+
+"Value Chain":`<svg viewBox="0 0 320 128" aria-label="A value chain maps every step from raw material to customer to see where value is created">
+<rect x="15" y="35" width="55" height="30" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="42" y="53" text-anchor="middle" style="font-size:6.5px">Raw material</text>
+<rect x="80" y="35" width="55" height="30" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="107" y="53" text-anchor="middle" style="font-size:6.5px">Production</text>
+<rect x="145" y="35" width="55" height="30" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="172" y="53" text-anchor="middle" style="font-size:6.5px">Marketing</text>
+<rect x="210" y="35" width="90" height="30" rx="6" class="vg"/>
+<text class="vgt" x="255" y="53" text-anchor="middle" style="font-size:7px">Customer's hands</text>
+<text class="vs" x="160" y="95" text-anchor="middle" fill="${MU}">Where along this line is the</text>
+<text class="vs" x="160" y="111" text-anchor="middle" fill="${MU}">value actually being created?</text>
+</svg>`,
+
+"Disruptive Innovation":`<svg viewBox="0 0 320 135" aria-label="Disruptive innovation is a cheaper simpler product that eventually overtakes the incumbent">
+<line x1="30" y1="105" x2="30" y2="20" stroke="${L}" stroke-width="1"/>
+<line x1="30" y1="105" x2="290" y2="105" stroke="${L}" stroke-width="1"/>
+<line x1="40" y1="55" x2="285" y2="45" stroke="${LO}" stroke-width="1.6"/>
+<text class="vs" x="250" y="38" text-anchor="middle" fill="${MU}" style="font-size:7px">incumbent</text>
+<path d="M40,95 Q150,90 220,55 Q250,38 285,25" fill="none" stroke="${G}" stroke-width="1.8"/>
+<text class="vgt" x="230" y="70" text-anchor="middle" style="font-size:7px">cheap upstart</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">Starts worse and cheaper — then climbs.</text>
+</svg>`,
+
+"Switching Costs":`<svg viewBox="0 0 320 132" aria-label="Switching costs are what make it painful for a customer to leave for a competitor">
+<circle cx="90" cy="50" r="16" fill="${P2}" stroke="${LO}" stroke-width="1.4"/>
+<text class="vs" x="90" y="54" text-anchor="middle" style="font-size:7.5px">You</text>
+<line x1="90" y1="66" x2="90" y2="88" stroke="${G}" stroke-width="2" stroke-dasharray="3 2"/>
+<text class="vgt" x="90" y="104" text-anchor="middle" style="font-size:7px">retraining, lost data, fees</text>
+<line x1="115" y1="46" x2="215" y2="42" stroke="${L}" stroke-width="1.2" stroke-dasharray="2 2"/>
+<rect x="218" y="28" width="70" height="30" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="253" y="47" text-anchor="middle" style="font-size:7.5px">better deal</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">The pain of leaving outweighs</text>
+<text class="vs" x="160" y="126" text-anchor="middle" fill="${MU}">the appeal of switching.</text>
+</svg>`,
+
+"Barriers to Entry":`<svg viewBox="0 0 320 138" aria-label="Barriers to entry are what stops new competitors from easily entering a market">
+<circle cx="50" cy="65" r="10" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="50" y="88" text-anchor="middle" fill="${MU}" style="font-size:7px">new competitor</text>
+<line x1="62" y1="65" x2="140" y2="65" stroke="${L}" stroke-width="1.2" stroke-dasharray="2 2"/>
+<rect x="145" y="20" width="14" height="90" class="vg"/>
+<rect x="163" y="20" width="14" height="90" class="vg"/>
+<rect x="181" y="20" width="14" height="90" class="vg"/>
+<text class="vgt" x="163" y="14" text-anchor="middle" style="font-size:6.5px">capital · patents · rules</text>
+<text class="vs" x="250" y="65" text-anchor="middle" fill="${MU}" style="font-size:7px">can't get in</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">Airlines have brutal barriers.</text>
+<text class="vs" x="160" y="136" text-anchor="middle" fill="${MU}">A food truck barely has any.</text>
+</svg>`,
+
+"Unit Economics":`<svg viewBox="0 0 320 128" aria-label="Unit economics is whether a company makes or loses money on a single customer or transaction">
+<text class="vs" x="80" y="24" text-anchor="middle" fill="${MU}" style="font-size:8px">One single order</text>
+<rect x="30" y="35" width="100" height="30" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="80" y="54" text-anchor="middle" style="font-size:8px">Revenue: ₹200</text>
+<rect x="30" y="70" width="100" height="30" rx="6" class="vg"/>
+<text class="vgt" x="80" y="89" text-anchor="middle" style="font-size:8px">Cost: ₹250</text>
+<text class="vt" x="160" y="60" text-anchor="middle" fill="${G}" style="font-size:14px">=</text>
+<rect x="190" y="45" width="100" height="34" rx="7" class="vg"/>
+<text class="vgt" x="240" y="67" text-anchor="middle" style="font-size:8.5px">−₹50, every order</text>
+<text class="vs" x="160" y="118" text-anchor="middle" fill="${MU}">Scale doesn't fix a loss per unit.</text>
+</svg>`,
+
+"TAM":`<svg viewBox="0 0 320 128" aria-label="TAM is Total Addressable Market, the ceiling of every rupee a business could ever make">
+<circle cx="160" cy="55" r="45" class="vg"/>
+<text class="vgt" x="160" y="52" text-anchor="middle" style="font-size:8px">100% of the market,</text>
+<text class="vgt" x="160" y="64" text-anchor="middle" style="font-size:8px">captured, everywhere</text>
+<text class="vs" x="160" y="112" text-anchor="middle" fill="${MU}">Every pitch deck has this slide —</text>
+<text class="vs" x="160" y="126" text-anchor="middle" fill="${MU}">and it's usually flattering.</text>
+</svg>`,
+
+"Blue Ocean Strategy":`<svg viewBox="0 0 320 138" aria-label="Blue ocean strategy means creating a new uncontested market instead of competing in an existing one">
+<rect x="20" y="25" width="120" height="75" rx="8" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="80" y="45" text-anchor="middle" fill="${MU}" style="font-size:7.5px">Red ocean</text>
+<circle cx="55" cy="65" r="9" fill="none" stroke="${MU}"/><circle cx="80" cy="80" r="9" fill="none" stroke="${MU}"/><circle cx="105" cy="60" r="9" fill="none" stroke="${MU}"/>
+<text class="vs" x="80" y="95" text-anchor="middle" fill="${MU}" style="font-size:6.5px">everyone fighting</text>
+<rect x="180" y="25" width="120" height="75" rx="8" class="vg"/>
+<text class="vgt" x="240" y="55" text-anchor="middle" style="font-size:8px">Blue ocean</text>
+<text class="vgt" x="240" y="75" text-anchor="middle" style="font-size:7px">uncontested space</text>
+<text class="vs" x="160" y="120" text-anchor="middle" fill="${MU}">Stop fighting.</text>
+<text class="vs" x="160" y="134" text-anchor="middle" fill="${MU}">Invent a new category instead.</text>
+</svg>`,
+
+"Flywheel Effect":`<svg viewBox="0 0 320 150" aria-label="A flywheel effect is a self-reinforcing loop where each part of the business strengthens the others">
+<rect x="125" y="10" width="70" height="26" rx="6" class="vg"/>
+<text class="vgt" x="160" y="27" text-anchor="middle" style="font-size:7.5px">Lower prices</text>
+<rect x="210" y="52" width="80" height="26" rx="6" class="vg"/>
+<text class="vgt" x="250" y="69" text-anchor="middle" style="font-size:7.5px">More customers</text>
+<rect x="125" y="94" width="70" height="26" rx="6" class="vg"/>
+<text class="vgt" x="160" y="111" text-anchor="middle" style="font-size:7.5px">More sellers</text>
+<rect x="20" y="52" width="80" height="26" rx="6" class="vg"/>
+<text class="vgt" x="60" y="69" text-anchor="middle" style="font-size:7.5px">More selection</text>
+<path d="M185,20 Q230,30 245,50" fill="none" stroke="${G}" stroke-width="1.3"/>
+<path d="M245,80 Q220,105 195,105" fill="none" stroke="${G}" stroke-width="1.3"/>
+<path d="M130,107 Q80,100 65,80" fill="none" stroke="${G}" stroke-width="1.3"/>
+<path d="M65,50 Q90,25 125,22" fill="none" stroke="${G}" stroke-width="1.3"/>
+<text class="vs" x="160" y="132" text-anchor="middle" fill="${MU}">Each part of the loop</text>
+<text class="vs" x="160" y="146" text-anchor="middle" fill="${MU}">makes the next part stronger.</text>
 </svg>`
 };
 
@@ -2651,7 +2837,22 @@ const TERMS = [
 {t:"Stagflation",c:9,p:"The worst combination: prices rising fast, but the economy barely growing at all.",m:"Normally inflation and growth move together. Stagflation is when they don't — you get the pain of expensive living without the benefit of a booming economy."},
 {t:"Fiscal Deficit",c:9,p:"The gap between what a government spends and what it actually collects in taxes.",m:"Covered by borrowing — which is why a large fiscal deficit today often means more government debt tomorrow."},
 {t:"CPI",c:9,p:"Consumer Price Index — the actual basket of goods used to measure how fast prices are rising.",m:"When the news says \"inflation is 6%,\" that number came from tracking the changing cost of this basket: food, fuel, rent, and more."},
-{t:"Repo Rate",c:9,p:"The interest rate at which the RBI lends short-term money to commercial banks.",m:"This is the single number that moves everything else — home loan rates, FD returns, business borrowing costs — all follow the repo rate up or down."}
+{t:"Repo Rate",c:9,p:"The interest rate at which the RBI lends short-term money to commercial banks.",m:"This is the single number that moves everything else — home loan rates, FD returns, business borrowing costs — all follow the repo rate up or down."},
+{t:"Porter's Five Forces",c:10,p:"Five questions that decide whether an industry is actually profitable to compete in.",m:"Rivals, new entrants, suppliers, buyers, and substitutes — score each one, and you'll know why airlines struggle to make money while luxury brands don't."},
+{t:"SWOT Analysis",c:10,p:"A simple four-box gut-check: what are we good at, bad at, what's coming that could help, and what's coming that could hurt.",m:"Strengths and Weaknesses look inward. Opportunities and Threats look outward. Simple enough to sketch on a napkin, useful enough that nobody's replaced it."},
+{t:"Core Competency",c:10,p:"The one thing a company does so well that competitors genuinely can't copy it.",m:"For Apple, it's design and ecosystem lock-in. Lose sight of your core competency, and you're just another commodity player competing on price."},
+{t:"Economies of Scale",c:10,p:"The bigger you get, the cheaper each individual unit becomes to make.",m:"It's why Amazon can price things lower than a small retailer — spreading the same fixed costs over millions more orders."},
+{t:"Network Effect",c:10,p:"A product that gets more useful to you specifically because more other people are using it too.",m:"WhatsApp is worthless if you're the only person who has it. That's the entire reason it's nearly impossible to dislodge once everyone's already on it."},
+{t:"First-Mover Advantage",c:10,p:"Getting there first, and locking in the customers, the brand, and the best partnerships before anyone else even shows up.",m:"Not always a real advantage — being first also means paying to educate a market that doesn't exist yet. Sometimes the second mover just copies the homework."},
+{t:"Vertical Integration",c:10,p:"A company buying up the suppliers or distributors around it, instead of relying on outsiders.",m:"Tesla making its own batteries instead of buying them — more control, more capital tied up, and no longer at a supplier's mercy on price or delays."},
+{t:"Value Chain",c:10,p:"Every step — raw material to finished product to customer's hands — mapped out to see exactly where the value actually gets created.",m:"Helps a company spot where it's genuinely adding value, and where it's just paying someone else to do a step it doesn't need to own."},
+{t:"Disruptive Innovation",c:10,p:"A cheaper, simpler, worse product that starts at the bottom of the market — and eventually eats the entire industry from below.",m:"Netflix's mail-order DVDs looked laughably worse than Blockbuster's stores. It didn't matter. It found the opening, and never stopped climbing."},
+{t:"Switching Costs",c:10,p:"Everything that makes leaving your bank, your software, or your phone ecosystem more annoying than it's worth.",m:"Money, time, retraining, lost data — real switching costs are why companies with mediocre products can still keep customers for years."},
+{t:"Barriers to Entry",c:10,p:"Whatever stops a random new competitor from just showing up and taking your customers tomorrow.",m:"Huge capital needs, patents, regulation, brand loyalty — airlines have brutal barriers to entry; opening a food truck barely has any."},
+{t:"Unit Economics",c:10,p:"Do you actually make money on one single customer, or are you just losing money faster as you grow?",m:"A startup can have a million users and still be worthless if it loses ₹50 on every single order — scale just means losing money at scale."},
+{t:"TAM",c:10,p:"The absolute ceiling — every rupee this business could ever make if it captured 100% of its market, everywhere.",m:"Total Addressable Market. Every pitch deck has a slide with this number, usually flattering, since it's your own estimate of your own opportunity."},
+{t:"Blue Ocean Strategy",c:10,p:"Inventing a new market nobody's fighting over yet, instead of bleeding out competing in an existing one.",m:"Cirque du Soleil didn't try to out-circus Ringling Bros. It removed the animals, added theater, and created a category with zero direct competitors."},
+{t:"Flywheel Effect",c:10,p:"A business loop where each part of the business makes every other part stronger, spinning faster the longer it runs.",m:"Amazon's version: lower prices bring more customers, more customers attract more sellers, more sellers mean more selection, more selection brings more customers."}
 ];
 
 /* ---------- decode mode ---------- */
