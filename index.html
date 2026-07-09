@@ -2923,18 +2923,18 @@ const flash=document.getElementById("flash");
 const fcat=document.getElementById("fcat"),fplain=document.getElementById("fplain"),
       fterm=document.getElementById("fterm"),fmore=document.getElementById("fmore"),
       fcountEl=document.getElementById("fcount");
-let deck=[],deckPos=0,seen=0;
+let deck=[],deckPos=0,seen=0,testDeckSource=TERMS,lastTestCat=null;
 
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
 function nextCard(){
-  if(deckPos>=deck.length){deck=shuffle([...TERMS]);deckPos=0;}
+  if(deckPos>=deck.length){deck=shuffle([...testDeckSource]);deckPos=0;}
   const t=deck[deckPos++];seen++;
   flash.classList.remove("revealed");
   fcat.textContent=CATS[t.c];
   fplain.textContent=t.p;
   fterm.textContent=t.t;
   fmore.textContent=t.m;
-  fcountEl.innerHTML=`card <b>${seen}</b> · ${TERMS.length} terms in the deck`;
+  fcountEl.innerHTML=`card <b>${seen}</b> · ${testDeckSource.length} terms in the deck`;
 }
 document.getElementById("frevbtn").addEventListener("click",()=>flash.classList.add("revealed"));
 document.getElementById("fnextbtn").addEventListener("click",nextCard);
@@ -2951,7 +2951,14 @@ mDecode.addEventListener("click",()=>{
 mTest.addEventListener("click",()=>{
   mTest.classList.add("active");mDecode.classList.remove("active");
   decodeView.classList.add("off");testZone.classList.add("on");
-  if(!deck.length)nextCard();
+  if(activeCat!==lastTestCat){
+    testDeckSource=activeCat===-1?TERMS:TERMS.filter(x=>x.c===activeCat);
+    deck=[];deckPos=0;seen=0;
+    lastTestCat=activeCat;
+    nextCard();
+  }else if(!deck.length){
+    nextCard();
+  }
 });
 
 render();
