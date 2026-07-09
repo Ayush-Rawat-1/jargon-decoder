@@ -315,7 +315,7 @@ applyTheme(savedTheme);
 themeDarkBtn.addEventListener("click", () => applyTheme("dark"));
 themeLightBtn.addEventListener("click", () => applyTheme("light"));
 
-const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis"];
+const CATS = ["Lifecycle","Clearing & Settlement","Instruments","Risk & Compliance","Market Structure","Technology","Investment Banking","Investment Analysis","Behavioral Finance"];
 
 /* ---------- mini diagram library ---------- */
 /* Each returns an SVG string sized for a card (~320px wide). Colors via CSS classes. */
@@ -2151,6 +2151,128 @@ const DIAG = {
 <rect x="190" y="30" width="100" height="34" rx="7" fill="${P2}" stroke="${L}"/>
 <text class="vs" x="240" y="52" text-anchor="middle" style="font-size:8px">Implied growth</text>
 <text class="vs" x="160" y="90" text-anchor="middle" fill="${MU}">What would have to be true?</text>
+</svg>`,
+
+"Confirmation Bias":`<svg viewBox="0 0 320 150" aria-label="Confirmation bias means only noticing evidence that supports what you already believe">
+<circle cx="70" cy="60" r="16" fill="${P2}" stroke="${LO}" stroke-width="1.4"/>
+<text class="vs" x="70" y="64" text-anchor="middle" style="font-size:8px">You</text>
+<rect x="120" y="26" width="150" height="34" rx="16" class="vg"/>
+<text class="vgt" x="195" y="47" text-anchor="middle" style="font-size:8.5px">"This confirms it!"</text>
+<rect x="120" y="70" width="150" height="30" rx="15" fill="${P2}" stroke="${L}" opacity=".45"/>
+<text class="vs" x="195" y="89" text-anchor="middle" style="font-size:8px" fill="${MU}">contrary evidence, ignored</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">You own the stock, so every bullish</text>
+<text class="vs" x="160" y="138" text-anchor="middle" fill="${MU}">article suddenly feels true.</text>
+</svg>`,
+
+"Hindsight Bias":`<svg viewBox="0 0 320 150" aria-label="Hindsight bias makes past events feel predictable only after they already happened">
+<path d="M30,60 Q80,30 110,65 Q140,95 170,55 Q200,25 230,60" fill="none" stroke="${MU}" stroke-width="1.3" stroke-dasharray="3 3"/>
+<text class="vs" x="130" y="18" text-anchor="middle" style="font-size:8px" fill="${MU}">how it felt at the time</text>
+<line x1="30" y1="100" x2="270" y2="100" stroke="${G}" stroke-width="1.8"/>
+<text class="vgt" x="250" y="116" text-anchor="middle" style="font-size:8px">"I knew it all along"</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">The crash looks obvious now.</text>
+<text class="vs" x="160" y="144" text-anchor="middle" fill="${MU}">It wasn't, then.</text>
+</svg>`,
+
+"Loss Aversion":`<svg viewBox="0 0 320 150" aria-label="Losses feel roughly twice as painful as equivalent gains feel good">
+<line x1="160" y1="30" x2="160" y2="60" stroke="${L}" stroke-width="1.4"/>
+<line x1="70" y1="90" x2="250" y2="50" stroke="${L}" stroke-width="1.4"/>
+<rect x="55" y="90" width="65" height="26" rx="6" class="vg"/>
+<text class="vgt" x="87" y="107" text-anchor="middle" style="font-size:8px">−₹10,000</text>
+<rect x="225" y="38" width="65" height="26" rx="6" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="257" y="55" text-anchor="middle" style="font-size:8px">+₹10,000</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">The loss just hurts more</text>
+<text class="vs" x="160" y="144" text-anchor="middle" fill="${MU}">than the gain feels good.</text>
+</svg>`,
+
+"Anchoring Bias":`<svg viewBox="0 0 320 140" aria-label="Anchoring bias means fixating on a reference price like what you originally paid">
+<rect x="60" y="20" width="110" height="30" rx="15" class="vg"/>
+<text class="vgt" x="115" y="39" text-anchor="middle" style="font-size:9px">Bought at ₹1,000</text>
+<line x1="115" y1="50" x2="115" y2="75" stroke="${G}" stroke-width="1.6" stroke-dasharray="3 3"/>
+<rect x="170" y="80" width="110" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="225" y="99" text-anchor="middle" style="font-size:9px">Actually worth ₹600</text>
+<text class="vs" x="160" y="128" text-anchor="middle" fill="${MU}">In your head, it's still "on sale."</text>
+</svg>`,
+
+"Herd Mentality":`<svg viewBox="0 0 320 130" aria-label="Herd mentality means following the crowd into a trade simply because everyone else is">
+<circle cx="60" cy="40" r="5" fill="${MU}"/>
+<circle cx="90" cy="55" r="5" fill="${MU}"/>
+<circle cx="60" cy="70" r="5" fill="${MU}"/>
+<circle cx="90" cy="85" r="5" fill="${MU}"/>
+<circle cx="60" cy="100" r="5" fill="${MU}"/>
+<line x1="100" y1="70" x2="180" y2="70" stroke="${G}" stroke-width="1.6"/>
+<rect x="185" y="52" width="100" height="36" rx="8" class="vg"/>
+<text class="vgt" x="235" y="74" text-anchor="middle" style="font-size:9px">Everyone's buying</text>
+<text class="vs" x="160" y="118" text-anchor="middle" fill="${MU}">Safety in numbers — except it isn't.</text>
+</svg>`,
+
+"Overconfidence Bias":`<svg viewBox="0 0 320 130" aria-label="Overconfidence bias means overrating your own skill after a few lucky wins">
+<circle cx="60" cy="58" r="6" fill="${G}"/><circle cx="90" cy="53" r="6" fill="${G}"/><circle cx="120" cy="56" r="6" fill="${G}"/>
+<text class="vs" x="90" y="30" text-anchor="middle" style="font-size:8px" fill="${MU}">3 correct trades</text>
+<line x1="140" y1="56" x2="180" y2="56" stroke="${MU}" stroke-width="1.4"/>
+<circle cx="220" cy="88" r="9" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="220" y="113" text-anchor="middle" style="font-size:8px" fill="${MU}">trade 4 wipes it out</text>
+<text class="vs" x="160" y="126" text-anchor="middle" fill="${MU}">A few lucky guesses can feel like skill.</text>
+</svg>`,
+
+"Recency Bias":`<svg viewBox="0 0 320 130" aria-label="Recency bias means assuming a recent trend will simply continue forever">
+<line x1="30" y1="90" x2="180" y2="40" stroke="${LO}" stroke-width="1.8"/>
+<line x1="180" y1="40" x2="280" y2="10" stroke="${G}" stroke-width="1.6" stroke-dasharray="3 3"/>
+<text class="vgt" x="250" y="20" text-anchor="middle" style="font-size:8px">"forever," you assume</text>
+<path d="M180,40 Q220,50 280,90" fill="none" stroke="${MU}" stroke-width="1.4"/>
+<text class="vs" x="250" y="105" text-anchor="middle" style="font-size:8px" fill="${MU}">what actually happens</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">Six good months don't guarantee a 7th.</text>
+</svg>`,
+
+"Sunk Cost Fallacy":`<svg viewBox="0 0 320 120" aria-label="Sunk cost fallacy means holding a bad investment because you have already put so much in">
+<rect x="40" y="30" width="110" height="30" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="95" y="49" text-anchor="middle" style="font-size:8.5px">Already lost 40%</text>
+<text class="vt" x="180" y="52" text-anchor="middle" fill="${MU}" style="font-size:13px">→</text>
+<rect x="200" y="30" width="90" height="30" rx="7" class="vg"/>
+<text class="vgt" x="245" y="49" text-anchor="middle" style="font-size:8.5px">"Can't sell now"</text>
+<text class="vs" x="160" y="90" text-anchor="middle" fill="${MU}">Would you buy it today, at this price?</text>
+<text class="vs" x="160" y="106" text-anchor="middle" fill="${MU}">If not, why still hold it?</text>
+</svg>`,
+
+"Availability Heuristic":`<svg viewBox="0 0 320 130" aria-label="Availability heuristic means judging risk by what is memorable, not what is actually likely">
+<circle cx="90" cy="55" r="30" fill="${P2}" stroke="${L}"/>
+<circle cx="80" cy="42" r="10" class="vg"/>
+<text class="vgt" x="80" y="45" text-anchor="middle" style="font-size:6.5px">Crypto win!</text>
+<circle cx="65" cy="65" r="5" fill="${MU}" opacity=".4"/>
+<circle cx="100" cy="70" r="5" fill="${MU}" opacity=".4"/>
+<circle cx="105" cy="50" r="4" fill="${MU}" opacity=".4"/>
+<text class="vs" x="90" y="102" text-anchor="middle" style="font-size:8px" fill="${MU}">your memory</text>
+<text class="vs" x="225" y="60" text-anchor="middle" fill="${MU}" style="font-size:8px">the ten friends</text>
+<text class="vs" x="225" y="76" text-anchor="middle" fill="${MU}" style="font-size:8px">who lost, forgotten</text>
+</svg>`,
+
+"Disposition Effect":`<svg viewBox="0 0 320 120" aria-label="Disposition effect means selling winning positions too early and holding losing ones too long">
+<rect x="30" y="30" width="120" height="34" rx="7" class="vg"/>
+<text class="vgt" x="90" y="51" text-anchor="middle" style="font-size:8.5px">Winner +20% → sold fast</text>
+<rect x="170" y="30" width="120" height="34" rx="7" fill="${P2}" stroke="${L}"/>
+<text class="vs" x="230" y="51" text-anchor="middle" style="font-size:8.5px">Loser −20% → held tight</text>
+<text class="vs" x="160" y="90" text-anchor="middle" fill="${MU}">Backwards: winners should run,</text>
+<text class="vs" x="160" y="106" text-anchor="middle" fill="${MU}">losers should be cut.</text>
+</svg>`,
+
+"FOMO":`<svg viewBox="0 0 320 140" aria-label="FOMO means buying at the peak purely because everyone else is already excited">
+<line x1="30" y1="100" x2="250" y2="20" stroke="${G}" stroke-width="1.8"/>
+<circle cx="250" cy="20" r="6" class="vg"/>
+<text class="vgt" x="250" y="10" text-anchor="middle" style="font-size:8px">you buy here</text>
+<circle cx="90" cy="76" r="5" fill="${MU}"/>
+<text class="vs" x="90" y="96" text-anchor="middle" style="font-size:8px" fill="${MU}">early money got in here</text>
+<text class="vs" x="160" y="122" text-anchor="middle" fill="${MU}">By the time it's exciting,</text>
+<text class="vs" x="160" y="138" text-anchor="middle" fill="${MU}">the easy gains are gone.</text>
+</svg>`,
+
+"Survivorship Bias":`<svg viewBox="0 0 320 130" aria-label="Survivorship bias means only studying the winners that remain, not the failures that quietly vanished">
+<rect x="30" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}" opacity=".3" stroke-dasharray="2 2"/>
+<rect x="82" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}" opacity=".3" stroke-dasharray="2 2"/>
+<rect x="134" y="30" width="45" height="26" rx="6" fill="${P2}" stroke="${L}" opacity=".3" stroke-dasharray="2 2"/>
+<text class="vs" x="105" y="18" text-anchor="middle" style="font-size:7px" fill="${MU}">funds that quietly closed</text>
+<rect x="200" y="30" width="90" height="26" rx="6" class="vg"/>
+<text class="vgt" x="245" y="47" text-anchor="middle" style="font-size:8.5px">Still around today</text>
+<text class="vs" x="160" y="95" text-anchor="middle" fill="${MU}">Only measuring the survivors flatters</text>
+<text class="vs" x="160" y="111" text-anchor="middle" fill="${MU}">the average, not the real picture.</text>
 </svg>`
 };
 
@@ -2344,7 +2466,19 @@ const TERMS = [
 {t:"Bottom-Up Forecasting",c:7,p:"Building a sales forecast from the ground up — unit by unit, customer by customer, product by product.",m:"Slower to build than top-down, but far harder to fool yourself with, since every assumption has to be justified individually."},
 {t:"Top-Down Forecasting",c:7,p:"Starting from the total market size, then estimating what slice of it one company can realistically capture.",m:"Faster and rougher than bottom-up — useful for a quick sanity check, dangerous as the only method you rely on."},
 {t:"Horizontal Analysis",c:7,p:"Lining up a company's financial statements side by side across several years to see what's actually changing.",m:"The simplest way to spot a trend — revenue growing steadily, or margins quietly eroding, year after year."},
-{t:"Reverse DCF",c:7,p:"Working backward from today's stock price to figure out what growth assumptions the market must already believe.",m:"Instead of asking 'what's this worth,' it asks 'what would have to be true for the current price to make sense.'"}
+{t:"Reverse DCF",c:7,p:"Working backward from today's stock price to figure out what growth assumptions the market must already believe.",m:"Instead of asking 'what's this worth,' it asks 'what would have to be true for the current price to make sense.'"},
+{t:"Confirmation Bias",c:8,p:"Only noticing the news that agrees with the stock you already own.",m:"You bought Reliance, so now every bullish article feels true and every bearish one feels wrong. You're not evaluating evidence anymore — you're defending a decision."},
+{t:"Hindsight Bias",c:8,p:"\"I totally saw the 2020 crash coming\" — said by nobody, in March 2020.",m:"After the crash, the signs feel obvious. Before it, they were buried in a hundred other signals that led nowhere. Memory rewrites the past to make you look smarter."},
+{t:"Loss Aversion",c:8,p:"Losing ₹10,000 hurts about twice as much as gaining ₹10,000 feels good.",m:"It's why you hold a losing stock way too long — selling would make the loss \"real,\" and that pain outweighs the logic of cutting it."},
+{t:"Anchoring Bias",c:8,p:"You bought a stock at ₹1,000. It's ₹600 now. In your head, it's still \"a ₹1,000 stock on sale.\"",m:"The price you paid has nothing to do with what it's actually worth today — but your brain won't let go of that first number."},
+{t:"Herd Mentality",c:8,p:"Buying a stock because your WhatsApp group won't stop talking about it.",m:"Everyone else buying feels like safety in numbers. It isn't — it's just a lot of people making the same unresearched decision at once."},
+{t:"Overconfidence Bias",c:8,p:"\"I called the last three trades right\" — right before the fourth one wipes out the gains from the first three.",m:"A few correct guesses feel like skill. Statistically, they're often just luck wearing a confident voice."},
+{t:"Recency Bias",c:8,p:"The market's been up for six months, so surely it'll keep going up forever.",m:"Whatever's happened most recently feels like the permanent new normal — until the trend reverses and last month's certainty looks foolish."},
+{t:"Sunk Cost Fallacy",c:8,p:"\"I've already lost 40% — might as well hold, I can't sell now.\"",m:"The money's already gone whether you sell or not. The only real question is: would you buy this stock today, at today's price? If not, why are you still holding it?"},
+{t:"Availability Heuristic",c:8,p:"You remember the one friend who got rich on crypto, not the ten who lost money.",m:"Dramatic stories stick in memory far more than boring statistics — so you judge the odds by what you can recall, not what's actually likely."},
+{t:"Disposition Effect",c:8,p:"Selling the winning stock for a quick profit, and holding the losing one \"until it recovers.\"",m:"Backwards logic: you should let winners run and cut losers fast. Most investors do the exact opposite, because selling a winner feels good and selling a loser feels like admitting defeat."},
+{t:"FOMO",c:8,p:"Buying a stock at its peak because everyone on Twitter is already up 300%.",m:"Fear Of Missing Out. By the time a trade is exciting enough to talk about at a dinner party, the easy money is usually already made."},
+{t:"Survivorship Bias",c:8,p:"Studying only the mutual funds that still exist today — not the ones that failed and quietly closed.",m:"The funds that blew up aren't around to be measured, so any \"average\" you calculate from survivors alone is flattering fiction, not the real picture."}
 ];
 
 /* ---------- decode mode ---------- */
